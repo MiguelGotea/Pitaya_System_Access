@@ -1,0 +1,8 @@
+﻿-- ==========================================================
+-- Consulta : ResumenVentasMesExcel
+-- Exportado: 2026-10-07 06:21:34
+-- ==========================================================
+SELECT NotaDePedido.Anulado, NotaDePedido.MotivoAnulado, NotaDePedido.Fecha, NotaDePedido.Hora, NotaDePedido.CodPedido, NotaDePedido.CodCliente, IIf([NotaDePedido]![POS]=-1,"A Cuentas","Efectivo") AS aPOS, Delivery.Nombre, Grupos.Tipo, Grupos.NombreGrupo, DBBatidos.Nombre, DBBatidos.Medida, SubPedido.Cantidad, [SubPedido]![CodPromocion] AS CodigoPromocion, [SubPedido]![Cantidad]*PrecioReal([SubPedido]![CodSubPedido]) AS Precio, codigolocal() AS [local], OperarioCaja([NotaDePedido]![Hora],[NotaDePedido]![Fecha]) AS Caja, statusnotaddepedido([NotaDePedido]![CodPedido]) AS Modalidad, NombreOperario([NotaDePedido]![CodMotorizado]) AS Motorizado, SubPedido.Observaciones, IIf([SubPedido]![CodPromocion]=92,0,IIf([SubPedido]![CodPromocion]=104,0,[DBBatidos]![Precio])) AS [Precio Unitario Sin Descuento], NotaDePedido.Impresiones, NotaDePedido.HoraCreado, NotaDePedido.HoraIngresoProducto, NotaDePedido.HoraImpreso, NotaDePedido.Propina
+FROM ((Delivery INNER JOIN ((SubPedido INNER JOIN DBBatidos ON SubPedido.CodBatido = DBBatidos.CodBatido) INNER JOIN NotaDePedido ON SubPedido.CodPedido = NotaDePedido.CodPedido) ON Delivery.CodDelivery = NotaDePedido.Delivery) INNER JOIN DBPromociones ON SubPedido.CodPromocion = DBPromociones.CodPromocion) INNER JOIN Grupos ON DBBatidos.CodGrupo = Grupos.CodGrupo
+WHERE (((NotaDePedido.Fecha) Between [Formularios]![Menu Gestion]![excelventasdesde] And [Formularios]![Menu Gestion]![excelventashasta]));
+
