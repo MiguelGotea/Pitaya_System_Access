@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Gestion Compras
-' Tipo    : 1
-' Lineas  : 247
+' Tipo    : 1  |  Lineas: 247
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 
 Function RequerimientoSemanal(ingrex As String, sem As Integer) As Double

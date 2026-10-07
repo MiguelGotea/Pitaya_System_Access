@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_LogueoAutorizacion
-' Tipo    : 100
-' Lineas  : 86
+' Tipo    : 100  |  Lineas: 86
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:28
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 Option Compare Database
 
 

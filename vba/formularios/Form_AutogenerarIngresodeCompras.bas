@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_AutogenerarIngresodeCompras
-' Tipo    : 100
-' Lineas  : 41
+' Tipo    : 100  |  Lineas: 41
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:23
+' Exportado: 2026-10-07 07:17:13
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub fechaac_Change()

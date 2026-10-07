@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu Cupones Web
-' Tipo    : 100
-' Lineas  : 28
+' Tipo    : 100  |  Lineas: 28
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:29
+' Exportado: 2026-10-07 07:17:20
 ' ==========================================================
+
 
 
 Private Sub Form_Open(Cancel As Integer)

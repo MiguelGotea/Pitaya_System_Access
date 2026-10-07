@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Actualizar Sistema
-' Tipo    : 1
-' Lineas  : 1153
+' Tipo    : 1  |  Lineas: 1153
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:17
+' Exportado: 2026-10-07 07:17:08
 ' ==========================================================
+
 Option Compare Database
 
 

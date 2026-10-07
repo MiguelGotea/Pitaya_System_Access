@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Calculo CU Cotizacion Semana NP
-' Tipo    : 100
-' Lineas  : 183
+' Tipo    : 100  |  Lineas: 183
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:27
+' Exportado: 2026-10-07 07:17:17
 ' ==========================================================
+
 Option Compare Database
 
 Public Sub Comando119_Click()

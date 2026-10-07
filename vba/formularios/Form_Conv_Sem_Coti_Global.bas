@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Conv_Sem_Coti_Global
-' Tipo    : 100
-' Lineas  : 6
+' Tipo    : 100  |  Lineas: 6
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:24
+' Exportado: 2026-10-07 07:17:14
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Form_Open(Cancel As Integer)

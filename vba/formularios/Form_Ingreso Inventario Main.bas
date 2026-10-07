@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Ingreso Inventario Main
-' Tipo    : 100
-' Lineas  : 49
+' Tipo    : 100  |  Lineas: 49
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:19
+' Exportado: 2026-10-07 07:17:09
 ' ==========================================================
+
 Option Compare Database
 Private Sub CrearListaUnidadesPorciones(fech As Date)
 'Lista completa porciones almacen global

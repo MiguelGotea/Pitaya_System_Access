@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_DefinirDatosPreingreso
-' Tipo    : 100
-' Lineas  : 57
+' Tipo    : 100  |  Lineas: 57
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:24
+' Exportado: 2026-10-07 07:17:15
 ' ==========================================================
+
 Option Compare Database
 
 

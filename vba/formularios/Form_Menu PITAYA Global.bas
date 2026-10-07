@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu PITAYA Global
-' Tipo    : 100
-' Lineas  : 101
+' Tipo    : 100  |  Lineas: 101
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:15
 ' ==========================================================
+
 
 
 Private Sub Comando5056_Click()

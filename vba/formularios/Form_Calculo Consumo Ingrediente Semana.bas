@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Calculo Consumo Ingrediente Semana
-' Tipo    : 100
-' Lineas  : 93
+' Tipo    : 100  |  Lineas: 93
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:19
+' Exportado: 2026-10-07 07:17:10
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando119_Click()

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_PlanProduccionMarcaPitaya
-' Tipo    : 100
-' Lineas  : 68
+' Tipo    : 100  |  Lineas: 68
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:27
+' Exportado: 2026-10-07 07:17:17
 ' ==========================================================
+
 Option Compare Database
 
 Public Sub asemana_Exit(Cancel As Integer)

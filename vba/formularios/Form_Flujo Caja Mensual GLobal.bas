@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Flujo Caja Mensual GLobal
-' Tipo    : 100
-' Lineas  : 176
+' Tipo    : 100  |  Lineas: 176
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:18
+' Exportado: 2026-10-07 07:17:09
 ' ==========================================================
+
 Option Compare Database
 Private Sub Form_Open(Cancel As Integer)
 Form.Caption = "¦¦ " & nombrelocal() & " - " & ciudadsistema() & " ¦¦"

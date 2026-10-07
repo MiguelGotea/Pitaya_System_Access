@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Report_PaquetesPorciones
-' Tipo    : 100
-' Lineas  : 22
+' Tipo    : 100  |  Lineas: 22
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 
 

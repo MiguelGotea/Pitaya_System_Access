@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_RelacionOperariosGlobal
-' Tipo    : 100
-' Lineas  : 61
+' Tipo    : 100  |  Lineas: 61
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:27
+' Exportado: 2026-10-07 07:17:18
 ' ==========================================================
+
 Option Compare Database
 
 

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Productos
-' Tipo    : 1
-' Lineas  : 789
+' Tipo    : 1  |  Lineas: 789
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 Function CotiPrincipalDeIngrediente(ingr As String) As Long
 On Error GoTo Nulo

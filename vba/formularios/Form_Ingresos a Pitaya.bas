@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Ingresos a Pitaya
-' Tipo    : 100
-' Lineas  : 59
+' Tipo    : 100  |  Lineas: 59
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:20
+' Exportado: 2026-10-07 07:17:10
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando106_Click()

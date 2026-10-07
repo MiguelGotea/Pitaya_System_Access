@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu RegistroComprasIngresos
-' Tipo    : 100
-' Lineas  : 107
+' Tipo    : 100  |  Lineas: 107
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:24
+' Exportado: 2026-10-07 07:17:14
 ' ==========================================================
+
 Option Compare Database
 
 

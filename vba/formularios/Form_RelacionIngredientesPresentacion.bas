@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_RelacionIngredientesPresentacion
-' Tipo    : 100
-' Lineas  : 136
+' Tipo    : 100  |  Lineas: 136
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:27
+' Exportado: 2026-10-07 07:17:18
 ' ==========================================================
+
 Option Compare Database
 Private Sub actualizarlista()
 On Error GoTo NoResultados

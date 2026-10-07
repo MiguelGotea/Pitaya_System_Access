@@ -1,7 +1,8 @@
 ﻿-- ==========================================================
 -- Consulta : ClientesClubUnionExternoInterno
--- Exportado: 2026-10-07 06:21:32
+-- Exportado: 2026-10-07 07:17:22
 -- ==========================================================
+
 SELECT 
     codigolocal() AS sucursal,
     [ClientesClub]![CodCliente] AS membresia,

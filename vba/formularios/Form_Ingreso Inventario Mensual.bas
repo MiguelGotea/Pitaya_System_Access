@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Ingreso Inventario Mensual
-' Tipo    : 100
-' Lineas  : 60
+' Tipo    : 100  |  Lineas: 60
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:20
+' Exportado: 2026-10-07 07:17:11
 ' ==========================================================
+
 Option Compare Database
 Private Sub CrearListaUnidadesCotizacion(fech As Date)
 'Lista completa ctizaciones *COntrol SI *NO Variables

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Control Semanal No Variables
-' Tipo    : 100
-' Lineas  : 51
+' Tipo    : 100  |  Lineas: 51
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:24
+' Exportado: 2026-10-07 07:17:14
 ' ==========================================================
+
 Option Compare Database
 
 

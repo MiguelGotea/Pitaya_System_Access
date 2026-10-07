@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Relacion Pedidos Anulados
-' Tipo    : 100
-' Lineas  : 40
+' Tipo    : 100  |  Lineas: 40
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:21
+' Exportado: 2026-10-07 07:17:11
 ' ==========================================================
+
 Option Compare Database
 
 Public Sub Comando119_Click()

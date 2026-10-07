@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Calculo Consumo NoPorcion Semana
-' Tipo    : 100
-' Lineas  : 90
+' Tipo    : 100  |  Lineas: 90
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:27
+' Exportado: 2026-10-07 07:17:17
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando119_Click()

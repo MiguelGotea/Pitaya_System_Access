@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Cliente Club
-' Tipo    : 1
-' Lineas  : 917
+' Tipo    : 1  |  Lineas: 917
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 Function PuntosGlobales2(codc As Integer) As Double
 'cantidad de puntos SUMA en base a una consulta del MIXED donde esta subpedido y nota de pedido de cada local UNIDO

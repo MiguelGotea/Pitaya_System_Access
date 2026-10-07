@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu Gestion
-' Tipo    : 100
-' Lineas  : 1940
+' Tipo    : 100  |  Lineas: 1940
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:20
+' Exportado: 2026-10-07 07:17:11
 ' ==========================================================
+
 Option Compare Database
 Option Explicit
 

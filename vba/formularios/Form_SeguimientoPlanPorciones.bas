@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_SeguimientoPlanPorciones
-' Tipo    : 100
-' Lineas  : 62
+' Tipo    : 100  |  Lineas: 62
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:23
+' Exportado: 2026-10-07 07:17:13
 ' ==========================================================
+
 Option Compare Database
 
 

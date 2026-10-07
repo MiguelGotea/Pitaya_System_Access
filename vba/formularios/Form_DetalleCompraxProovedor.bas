@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_DetalleCompraxProovedor
-' Tipo    : 100
-' Lineas  : 40
+' Tipo    : 100  |  Lineas: 40
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:16
 ' ==========================================================
+
 Option Compare Database
 
 Public Sub Comando324_Click()

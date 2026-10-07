@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : modulo_sync_cupon
-' Tipo    : 1
-' Lineas  : 86
+' Tipo    : 1  |  Lineas: 86
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:31
+' Exportado: 2026-10-07 07:17:21
 ' ==========================================================
+
 Option Compare Database
 
 Public Function AplicarCuponSimple(ByVal numeroCupon As String, _

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_CambiarIngredientesFactura
-' Tipo    : 100
-' Lineas  : 119
+' Tipo    : 100  |  Lineas: 119
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:23
+' Exportado: 2026-10-07 07:17:13
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando403_Click()

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_HistorialDespachoInsumosFIjos
-' Tipo    : 100
-' Lineas  : 18
+' Tipo    : 100  |  Lineas: 18
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:16
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando52_Click()

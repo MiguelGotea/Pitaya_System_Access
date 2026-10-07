@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Introduccion
-' Tipo    : 100
-' Lineas  : 261
+' Tipo    : 100  |  Lineas: 261
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:15
 ' ==========================================================
+
 Option Compare Database
 Private Sub starplayer_Click()
 'If Not ProgramaEstaAbierto("vlc.exe") Then

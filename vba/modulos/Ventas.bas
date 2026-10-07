@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Ventas
-' Tipo    : 1
-' Lineas  : 382
+' Tipo    : 1  |  Lineas: 382
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:27
+' Exportado: 2026-10-07 07:17:17
 ' ==========================================================
+
 Option Compare Database
 
 Function VentasXTipoPorcionDia(diax As Date, porci As Integer) As Double

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Calculo CU Cotizacion Semana P
-' Tipo    : 100
-' Lineas  : 97
+' Tipo    : 100  |  Lineas: 97
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:19
+' Exportado: 2026-10-07 07:17:09
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando119_Click()

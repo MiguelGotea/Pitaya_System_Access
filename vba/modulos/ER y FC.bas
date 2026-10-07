@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : ER y FC
-' Tipo    : 1
-' Lineas  : 343
+' Tipo    : 1  |  Lineas: 343
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 'MES Y AÑO DE FORMULARIO ABIERTO ( FLUJO DE CAJA O ESTADO DE RESULTADOS)
 

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_HistorialComprasProovedor
-' Tipo    : 100
-' Lineas  : 10
+' Tipo    : 100  |  Lineas: 10
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:24
+' Exportado: 2026-10-07 07:17:14
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando2130_Click()

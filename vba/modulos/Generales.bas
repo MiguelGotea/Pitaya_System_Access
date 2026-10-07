@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Generales
-' Tipo    : 1
-' Lineas  : 1689
+' Tipo    : 1  |  Lineas: 1689
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 Function ListarTablasVinculadasAgrupadasCompacto() As String
     On Error GoTo ManejarError

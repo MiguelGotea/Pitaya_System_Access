@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Ingreso Inventario Almacen
-' Tipo    : 100
-' Lineas  : 152
+' Tipo    : 100  |  Lineas: 152
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:16
 ' ==========================================================
+
 Option Compare Database
 Private Sub CrearListaUnidadesCotizacion(fech As Date)
 'Lista completa ctizaciones, ingredientes Inventario SI

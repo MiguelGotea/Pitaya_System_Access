@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Ingreso Inventario Pitaya
-' Tipo    : 100
-' Lineas  : 961
+' Tipo    : 100  |  Lineas: 961
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:15
 ' ==========================================================
+
 Option Compare Database
 Public Function cargarllaveatemporal()
 DoCmd.SetWarnings False

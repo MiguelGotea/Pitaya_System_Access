@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Filtro Ingresos Semana
-' Tipo    : 100
-' Lineas  : 74
+' Tipo    : 100  |  Lineas: 74
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:18
+' Exportado: 2026-10-07 07:17:08
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub bcodigo_Change()

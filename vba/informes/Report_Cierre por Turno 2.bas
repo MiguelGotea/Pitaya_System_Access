@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Report_Cierre por Turno 2
-' Tipo    : 100
-' Lineas  : 8
+' Tipo    : 100  |  Lineas: 8
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:27
+' Exportado: 2026-10-07 07:17:18
 ' ==========================================================
+
 Option Compare Database
 Private Sub Report_Open(Cancel As Integer)
 '1 cm=567 twips

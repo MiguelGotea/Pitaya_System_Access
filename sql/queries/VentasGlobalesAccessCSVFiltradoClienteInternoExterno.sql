@@ -1,7 +1,8 @@
 ﻿-- ==========================================================
 -- Consulta : VentasGlobalesAccessCSVFiltradoClienteInternoExterno
--- Exportado: 2026-10-07 06:21:34
+-- Exportado: 2026-10-07 07:17:23
 -- ==========================================================
+
 SELECT v1.*, (
         SELECT SUM(IIf(v2.Anulado=0, v2.PuntosLinea, 0))
         FROM VentasGlobalesFiltradoClienteInternoExterno AS v2

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Inventarios
-' Tipo    : 1
-' Lineas  : 2236
+' Tipo    : 1  |  Lineas: 2236
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:13
 ' ==========================================================
+
 Option Compare Database
 
 Function ComprasGlobales(sem As Integer) As Double

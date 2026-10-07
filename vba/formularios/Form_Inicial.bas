@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Inicial
-' Tipo    : 100
-' Lineas  : 52
+' Tipo    : 100  |  Lineas: 52
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:28
+' Exportado: 2026-10-07 07:17:18
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando24_Click()

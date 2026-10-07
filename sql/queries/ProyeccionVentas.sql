@@ -1,7 +1,8 @@
 ﻿-- ==========================================================
 -- Consulta : ProyeccionVentas
--- Exportado: 2026-10-07 06:21:33
+-- Exportado: 2026-10-07 07:17:23
 -- ==========================================================
+
 SELECT numerosemana([NotaDePedido]![Fecha]) AS semana, Sum(SubPedido.Cantidad) AS SumaDeCantidad, DBBatidos.Nombre, Grupos.NombreGrupo, numerosemana(Date())=numerosemana([NotaDePedido]![Fecha]) AS EstaSemana
 FROM Grupos INNER JOIN ((NotaDePedido INNER JOIN SubPedido ON NotaDePedido.CodPedido = SubPedido.CodPedido) INNER JOIN DBBatidos ON SubPedido.CodBatido = DBBatidos.CodBatido) ON Grupos.CodGrupo = DBBatidos.CodGrupo
 GROUP BY numerosemana([NotaDePedido]![Fecha]), DBBatidos.Nombre, Grupos.NombreGrupo, numerosemana(Date())=numerosemana([NotaDePedido]![Fecha])

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : InformacionNutricional
-' Tipo    : 1
-' Lineas  : 127
+' Tipo    : 1  |  Lineas: 127
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:13
 ' ==========================================================
+
 Option Compare Database
 
 Function ComponenteNutricionalEnergia(ingr As String) As Double

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Rendimientos
-' Tipo    : 1
-' Lineas  : 158
+' Tipo    : 1  |  Lineas: 158
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 Function ConversionEstandar(coti As Long) As Double
 Dim convedefecto As Double

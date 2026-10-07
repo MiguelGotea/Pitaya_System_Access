@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Dashboard_Ventas_MesGrupos
-' Tipo    : 100
-' Lineas  : 8
+' Tipo    : 100  |  Lineas: 8
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:19
+' Exportado: 2026-10-07 07:17:09
 ' ==========================================================
+
 Option Compare Database
 
 

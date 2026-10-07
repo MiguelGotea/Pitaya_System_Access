@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : modulo_descargar_tablas
-' Tipo    : 1
-' Lineas  : 244
+' Tipo    : 1  |  Lineas: 244
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:31
+' Exportado: 2026-10-07 07:17:21
 ' ==========================================================
+
 Option Compare Database
 
 Public Function DescargarTablaCompleta(ByVal nombreTablaOrigen As String, ByVal nombreTablaDestino As String, Optional ByVal Filtro As String = "") As Boolean

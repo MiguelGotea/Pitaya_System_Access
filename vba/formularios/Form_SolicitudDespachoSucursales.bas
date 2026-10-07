@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_SolicitudDespachoSucursales
-' Tipo    : 100
-' Lineas  : 189
+' Tipo    : 100  |  Lineas: 189
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:28
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub generarpreingresosegunpedido(preingresoprimer As Long, preingresosegundo As Long)

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Report_CodigoDeBarras
-' Tipo    : 100
-' Lineas  : 26
+' Tipo    : 100  |  Lineas: 26
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:21
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando212_Click()

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Pago Personal
-' Tipo    : 100
-' Lineas  : 348
+' Tipo    : 100  |  Lineas: 348
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:20
+' Exportado: 2026-10-07 07:17:10
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando198_Click()

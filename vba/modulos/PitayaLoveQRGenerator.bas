@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : PitayaLoveQRGenerator
-' Tipo    : 1
-' Lineas  : 407
+' Tipo    : 1  |  Lineas: 407
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:30
+' Exportado: 2026-10-07 07:17:20
 ' ==========================================================
+
 ' ============================================
 ' Módulo: PitayaLoveQRGenerator
 ' Descripción: Genera QR codes online para facturas de Pitaya Love

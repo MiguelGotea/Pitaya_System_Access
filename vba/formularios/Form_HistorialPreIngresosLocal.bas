@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_HistorialPreIngresosLocal
-' Tipo    : 100
-' Lineas  : 320
+' Tipo    : 100  |  Lineas: 320
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:15
 ' ==========================================================
+
 Option Compare Database
 Private Sub crearvalidacionpreingreso(codi As Long)
 On Error GoTo AgainAgain

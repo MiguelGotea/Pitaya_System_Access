@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Nota de Pedido
-' Tipo    : 100
-' Lineas  : 987
+' Tipo    : 100  |  Lineas: 987
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:15
 ' ==========================================================
+
 Option Compare Database
 Public Sub BloquearFacturacion()
 'MsgBox "Pedido Bloqueado,solo permitido cambiar tipo de envase y tipo de pago"

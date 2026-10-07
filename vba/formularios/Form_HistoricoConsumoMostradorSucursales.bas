@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_HistoricoConsumoMostradorSucursales
-' Tipo    : 100
-' Lineas  : 48
+' Tipo    : 100  |  Lineas: 48
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:26
+' Exportado: 2026-10-07 07:17:17
 ' ==========================================================
+
 Option Compare Database
 
 

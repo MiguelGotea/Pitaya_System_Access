@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Check In/Out
-' Tipo    : 100
-' Lineas  : 137
+' Tipo    : 100  |  Lineas: 137
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:19
+' Exportado: 2026-10-07 07:17:09
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub CodigoBusqueda_Exit(Cancel As Integer)

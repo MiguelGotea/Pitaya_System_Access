@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Control Existencias Compra Venta
-' Tipo    : 100
-' Lineas  : 55
+' Tipo    : 100  |  Lineas: 55
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:17
+' Exportado: 2026-10-07 07:17:08
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando54_Click()

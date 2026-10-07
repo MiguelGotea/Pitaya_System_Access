@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Control Mensual
-' Tipo    : 1
-' Lineas  : 95
+' Tipo    : 1  |  Lineas: 95
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 
 Function IngresosPitayaMes(codc As Integer, Mes As Integer, ano As Integer) As Long

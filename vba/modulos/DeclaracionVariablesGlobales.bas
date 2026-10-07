@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : DeclaracionVariablesGlobales
-' Tipo    : 1
-' Lineas  : 23
+' Tipo    : 1  |  Lineas: 23
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:29
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 Option Compare Database
 Public Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal Milliseconds As LongPtr)
 

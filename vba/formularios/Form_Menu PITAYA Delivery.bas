@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu PITAYA Delivery
-' Tipo    : 100
-' Lineas  : 52
+' Tipo    : 100  |  Lineas: 52
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:29
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 
 
 Private Sub Comando538_Click()

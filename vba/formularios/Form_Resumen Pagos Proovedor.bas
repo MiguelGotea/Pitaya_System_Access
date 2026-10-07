@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Resumen Pagos Proovedor
-' Tipo    : 100
-' Lineas  : 147
+' Tipo    : 100  |  Lineas: 147
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:24
+' Exportado: 2026-10-07 07:17:14
 ' ==========================================================
+
 Option Compare Database
 Sub guardarresumen()
 'guardar recumen de pago en imagen

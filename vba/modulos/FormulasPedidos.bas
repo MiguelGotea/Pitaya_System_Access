@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : FormulasPedidos
-' Tipo    : 1
-' Lineas  : 2392
+' Tipo    : 1  |  Lineas: 2392
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:12
 ' ==========================================================
+
 Option Compare Database
 Sub actualizarmontoguardadopedidosdia(fechi As Date)
 On Error GoTo Nulo

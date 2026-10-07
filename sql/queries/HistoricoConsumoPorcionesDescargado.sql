@@ -1,7 +1,8 @@
 ﻿-- ==========================================================
 -- Consulta : HistoricoConsumoPorcionesDescargado
--- Exportado: 2026-10-07 06:21:33
+-- Exportado: 2026-10-07 07:17:22
 -- ==========================================================
+
 SELECT FiltroPorcionesVigentes.CodCotizacion, nombreproductocotiprocesado([FiltroPorcionesVigentes]![CodCotizacion]) AS Nombre, (IIf([Forms]![HistoricoConsumoPorcionesDescargado]![asucursal]=-1,FRConsumoPorcionSumaLocales(PorcionGlobalDePorcion([codCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]),FRConsumoPorcion(PorcionGlobalDePorcion([CodCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]))) AS s1, (IIf([Forms]![HistoricoConsumoPorcionesDescargado]![asucursal]=-1,FRConsumoPorcionSumaLocales(PorcionGlobalDePorcion([codCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]-1),FRConsumoPorcion(PorcionGlobalDePorcion([codCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]-1))) AS s2, (IIf([Forms]![HistoricoConsumoPorcionesDescargado]![asucursal]=-1,FRConsumoPorcionSumaLocales(PorcionGlobalDePorcion([codCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]-2),FRConsumoPorcion(PorcionGlobalDePorcion([codCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]-2))) AS s3, (IIf([Forms]![HistoricoConsumoPorcionesDescargado]![asucursal]=-1,FRConsumoPorcionSumaLocales(PorcionGlobalDePorcion([codCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]-3),FRConsumoPorcion(PorcionGlobalDePorcion([codCotizacion]),[Forms]![HistoricoConsumoPorcionesDescargado]![semanaactual]-3))) AS s4
 FROM FiltroPorcionesVigentes;
 

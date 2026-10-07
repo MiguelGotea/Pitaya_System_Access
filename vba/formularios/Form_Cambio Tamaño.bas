@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Cambio Tamaño
-' Tipo    : 100
-' Lineas  : 26
+' Tipo    : 100  |  Lineas: 26
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:18
+' Exportado: 2026-10-07 07:17:09
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando7_Click()

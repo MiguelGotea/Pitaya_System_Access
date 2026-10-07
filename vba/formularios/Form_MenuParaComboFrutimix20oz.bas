@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_MenuParaComboFrutimix20oz
-' Tipo    : 100
-' Lineas  : 9
+' Tipo    : 100  |  Lineas: 9
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:30
+' Exportado: 2026-10-07 07:17:20
 ' ==========================================================
+
 
 
 Private Sub Form_Open(Cancel As Integer)

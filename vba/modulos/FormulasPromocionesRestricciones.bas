@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : FormulasPromocionesRestricciones
-' Tipo    : 1
-' Lineas  : 106
+' Tipo    : 1  |  Lineas: 106
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:30
+' Exportado: 2026-10-07 07:17:20
 ' ==========================================================
+
 Option Compare Database
 
 Function cantidadsemillapedido(pedix As Long) As Integer

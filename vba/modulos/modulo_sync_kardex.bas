@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : modulo_sync_kardex
-' Tipo    : 1
-' Lineas  : 753
+' Tipo    : 1  |  Lineas: 753
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:30
+' Exportado: 2026-10-07 07:17:20
 ' ==========================================================
+
 ' =============================================================
 ' Módulo: modSyncKardex
 ' Propósito: Sincronización unidireccional Access ? Host MySQL

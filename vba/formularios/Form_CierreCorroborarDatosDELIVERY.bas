@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_CierreCorroborarDatosDELIVERY
-' Tipo    : 100
-' Lineas  : 56
+' Tipo    : 100  |  Lineas: 56
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:26
+' Exportado: 2026-10-07 07:17:17
 ' ==========================================================
+
 Option Compare Database
 Public Sub forzaringresopos()
 

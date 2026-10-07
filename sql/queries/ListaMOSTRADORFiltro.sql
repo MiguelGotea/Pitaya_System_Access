@@ -1,7 +1,8 @@
 ﻿-- ==========================================================
 -- Consulta : ListaMOSTRADORFiltro
--- Exportado: 2026-10-07 06:21:33
+-- Exportado: 2026-10-07 07:17:23
 -- ==========================================================
+
 SELECT DBBatidos.Marca, DBBatidos.CodSubGrupo, DBBatidos.CodGrupo, DBBatidos.Vigencia, SubReceta.InsumoClave, IIf(IsNull([SubReceta]![codporcion]),DLookUp("[Nombre]","[DBIngredientes]","[CodIngrediente]='" & [SubReceta]![CodIngrediente] & "'"),nombreproductocotiprocesado([SubReceta]![codporcion])) AS nombreprod, SubReceta.codporcion, SubReceta.CodIngrediente, CotiPrincipalProdCompraVenta([DBBatidos]![CodBatido]) AS coti
 FROM DBBatidos INNER JOIN SubReceta ON DBBatidos.CodBatido = SubReceta.CodBatido
 GROUP BY DBBatidos.Marca, DBBatidos.CodSubGrupo, DBBatidos.CodGrupo, DBBatidos.Vigencia, SubReceta.InsumoClave, IIf(IsNull([SubReceta]![codporcion]),DLookUp("[Nombre]","[DBIngredientes]","[CodIngrediente]='" & [SubReceta]![CodIngrediente] & "'"),nombreproductocotiprocesado([SubReceta]![codporcion])), SubReceta.codporcion, SubReceta.CodIngrediente, CotiPrincipalProdCompraVenta([DBBatidos]![CodBatido])

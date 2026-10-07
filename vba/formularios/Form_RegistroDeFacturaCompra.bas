@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_RegistroDeFacturaCompra
-' Tipo    : 100
-' Lineas  : 507
+' Tipo    : 100  |  Lineas: 507
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:16
 ' ==========================================================
+
 Option Compare Database
 Public Sub bloquearedicionfactura()
 Me.afechaorden.Enabled = False

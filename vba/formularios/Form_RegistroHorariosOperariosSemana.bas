@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_RegistroHorariosOperariosSemana
-' Tipo    : 100
-' Lineas  : 391
+' Tipo    : 100  |  Lineas: 391
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:28
+' Exportado: 2026-10-07 07:17:18
 ' ==========================================================
+
 Option Compare Database
 Public Sub modohorariobloqueado()
 Me.CodTipoLunes.Locked = True

@@ -1,7 +1,8 @@
 ﻿-- ==========================================================
 -- Consulta : ControlVentasPeriodos
--- Exportado: 2026-10-07 06:21:32
+-- Exportado: 2026-10-07 07:17:22
 -- ==========================================================
+
 SELECT NotaDePedido.Fecha, Hour([NotaDePedido]![Hora]) AS Hora, Sum(FactorTiempoProduccion([SubPedido]![CodSubPedido])) AS Monto
 FROM NotaDePedido INNER JOIN SubPedido ON NotaDePedido.CodPedido = SubPedido.CodPedido
 GROUP BY NotaDePedido.Fecha, Hour([NotaDePedido]![Hora])

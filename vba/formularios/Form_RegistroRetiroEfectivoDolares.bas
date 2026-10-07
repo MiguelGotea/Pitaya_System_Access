@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_RegistroRetiroEfectivoDolares
-' Tipo    : 100
-' Lineas  : 55
+' Tipo    : 100  |  Lineas: 55
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:26
+' Exportado: 2026-10-07 07:17:16
 ' ==========================================================
+
 Option Compare Database
 Private Sub d1_Exit(Cancel As Integer)
 If IsNull(Me.d1) Then

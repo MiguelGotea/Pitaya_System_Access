@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu Servicio Delivery Managua
-' Tipo    : 100
-' Lineas  : 20
+' Tipo    : 100  |  Lineas: 20
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:28
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 
 
 Private Sub Comando2313_Click()

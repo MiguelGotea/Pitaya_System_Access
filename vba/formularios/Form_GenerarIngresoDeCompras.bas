@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_GenerarIngresoDeCompras
-' Tipo    : 100
-' Lineas  : 53
+' Tipo    : 100  |  Lineas: 53
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:24
+' Exportado: 2026-10-07 07:17:15
 ' ==========================================================
+
 Option Compare Database
 
 

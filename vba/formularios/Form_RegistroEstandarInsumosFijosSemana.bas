@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_RegistroEstandarInsumosFijosSemana
-' Tipo    : 100
-' Lineas  : 29
+' Tipo    : 100  |  Lineas: 29
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:26
+' Exportado: 2026-10-07 07:17:17
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub Comando131_Click()

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : PreIngresos
-' Tipo    : 1
-' Lineas  : 703
+' Tipo    : 1  |  Lineas: 703
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:25
+' Exportado: 2026-10-07 07:17:16
 ' ==========================================================
+
 Option Compare Database
 
 Sub AutoIngresoDatosPorciones(seman As Integer, rangi As Integer, incres As Double, locs As Integer, despa As Integer, preis As Long, preic As Long, contadorerror As Integer)

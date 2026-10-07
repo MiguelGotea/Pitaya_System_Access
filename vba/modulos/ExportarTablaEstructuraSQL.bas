@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : ExportarTablaEstructuraSQL
-' Tipo    : 1
-' Lineas  : 86
+' Tipo    : 1  |  Lineas: 86
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:30
+' Exportado: 2026-10-07 07:17:20
 ' ==========================================================
+
 Option Compare Database
 
 Sub ExportarDDL()

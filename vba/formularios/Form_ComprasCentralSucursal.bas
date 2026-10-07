@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_ComprasCentralSucursal
-' Tipo    : 100
-' Lineas  : 209
+' Tipo    : 100  |  Lineas: 209
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:28
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 Option Compare Database
 Function proovedoresseleccionadosgeneracionresumendepago() As Integer
 'si no hay mas de 2 proovedores seleccionados manda el nunero de provedor, si hay mas de dos manda 0

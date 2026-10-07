@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_HistorialVentasDeliveryCentral
-' Tipo    : 100
-' Lineas  : 36
+' Tipo    : 100  |  Lineas: 36
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:29
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 Option Compare Database
 
 

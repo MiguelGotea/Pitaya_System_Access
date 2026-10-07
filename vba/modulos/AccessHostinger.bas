@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : AccessHostinger
-' Tipo    : 1
-' Lineas  : 221
+' Tipo    : 1  |  Lineas: 221
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:29
+' Exportado: 2026-10-07 07:17:19
 ' ==========================================================
+
 Option Compare Database
 Function DriverHostinger() As String
 DriverHostinger = DLookup("[DriverHostinger]", "[SistemaGlobal]", 1 = 1)

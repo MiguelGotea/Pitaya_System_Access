@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_RegistroRetiroEfectivoCordobas
-' Tipo    : 100
-' Lineas  : 73
+' Tipo    : 100  |  Lineas: 73
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:26
+' Exportado: 2026-10-07 07:17:16
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub c0_5_Exit(Cancel As Integer)

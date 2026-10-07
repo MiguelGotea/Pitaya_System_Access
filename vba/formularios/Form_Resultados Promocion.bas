@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Resultados Promocion
-' Tipo    : 100
-' Lineas  : 110
+' Tipo    : 100  |  Lineas: 110
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:18
+' Exportado: 2026-10-07 07:17:09
 ' ==========================================================
+
 Option Compare Database
 Private Sub ocultardatosdia()
 Me.totalconpromo.Visible = False

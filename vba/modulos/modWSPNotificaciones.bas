@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : modWSPNotificaciones
-' Tipo    : 1
-' Lineas  : 64
+' Tipo    : 1  |  Lineas: 64
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:31
+' Exportado: 2026-10-07 07:17:21
 ' ==========================================================
+
 Option Compare Database
 
 

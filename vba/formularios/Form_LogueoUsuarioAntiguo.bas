@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_LogueoUsuarioAntiguo
-' Tipo    : 100
-' Lineas  : 50
+' Tipo    : 100  |  Lineas: 50
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:30
+' Exportado: 2026-10-07 07:17:20
 ' ==========================================================
+
 Option Compare Database
 
 

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Inicio Modo Aplicativo
-' Tipo    : 100
-' Lineas  : 25
+' Tipo    : 100  |  Lineas: 25
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:21
+' Exportado: 2026-10-07 07:17:11
 ' ==========================================================
+
 Option Compare Database
 Option Explicit
 

@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Form_IngresoCodigoBarras
-' Tipo    : 100
-' Lineas  : 487
+' Tipo    : 100  |  Lineas: 487
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:19
+' Exportado: 2026-10-07 07:17:10
 ' ==========================================================
+
 Option Compare Database
 
 Private Sub cantidad_GotFocus()

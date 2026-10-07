@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : modulo_sync_clientes_club_datos
-' Tipo    : 1
-' Lineas  : 138
+' Tipo    : 1  |  Lineas: 138
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:31
+' Exportado: 2026-10-07 07:17:21
 ' ==========================================================
+
 
 
 ''''''''''''''''''''''''''''EXTRAER VALORES DE MEMEBRESIA EN HOST ''''''''''''''''''''''''''''''''''''''''

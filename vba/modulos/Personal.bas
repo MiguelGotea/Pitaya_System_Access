@@ -1,10 +1,10 @@
 ﻿' ==========================================================
 ' Modulo  : Personal
-' Tipo    : 1
-' Lineas  : 1211
+' Tipo    : 1  |  Lineas: 1211
 ' Proyecto: Database3
-' Exportado: 2026-10-07 06:21:22
+' Exportado: 2026-10-07 07:17:13
 ' ==========================================================
+
 Option Compare Database
 
 Function TarifaDia(Ope As Integer, fech As Date) As Double
