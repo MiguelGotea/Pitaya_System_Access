@@ -1,9 +1,14 @@
-﻿# Pitaya System Access — Repositorio VBA + SQL
+﻿# Pitaya System Access — Control de versiones VBA + SQL
 
-Control de versiones del código VBA y las consultas SQL extraídos de `Pitaya_System.accdb`.
+Control de versiones del código VBA, consultas SQL y estructura de tablas  
+extraídos de `Pitaya_System.accdb` mediante PowerShell y Git.
 
-> **El archivo `.accdb` NO está en este repositorio** (pesa ~216 MB).  
-> Vive en `C:\Users\<usuario>\Desktop\Sistema\Pitaya_System.accdb` y se copia localmente al ejecutar el script de exportación.
+> **El archivo `.accdb` NO está en este repositorio** (~216 MB).
+> Vive en `C:\Users\<usuario>\Desktop\Sistema\Pitaya_System.accdb`.
+> Los scripts trabajan sobre una **copia local** — el original nunca se
+> toca automáticamente.
+
+📖 **Para el flujo de trabajo completo, escenarios y referencia detallada, ver [MANUAL.md](MANUAL.md).**
 
 ---
 
@@ -11,19 +16,26 @@ Control de versiones del código VBA y las consultas SQL extraídos de `Pitaya_S
 
 ```
 Pitaya_System_Access/
+│
 ├── scripts/
-│   └── Export-AccessVBA.ps1   ← script de exportación (el que genera todo)
+│   ├── Export-AccessVBA.ps1    ← Desglosar .accdb → archivos de código
+│   ├── Import-AccessVBA.ps1    ← Reensamblar archivos de código → .accdb
+│   └── gitpush.ps1             ← Subir cambios a GitHub
+│
 ├── vba/
-│   ├── formularios/           ← Form_*.bas   (código detrás de cada formulario)
-│   ├── informes/              ← Report_*.bas (código detrás de cada informe)
-│   ├── modulos/               ← módulos estándar .bas (AccessHostinger, Delivery, etc.)
-│   └── clases/                ← módulos de clase .cls (si existen)
+│   ├── formularios/            ← Form_*.bas   (código VBA de formularios)
+│   ├── informes/               ← Report_*.bas (código VBA de informes)
+│   ├── modulos/                ← módulos estándar .bas
+│   └── clases/                 ← módulos de clase .cls
+│
 ├── sql/
-│   └── queries/               ← SQL de cada consulta definida en Access (.sql)
-├── db/                        ← IGNORADO por git — copia local del .accdb
-├── export_log.txt             ← IGNORADO por git — log del último proceso
-├── .gitignore
-└── README.md
+│   ├── queries/                ← SQL de consultas guardadas en Access
+│   └── tables/                 ← DDL CREATE TABLE de cada tabla
+│
+├── db/                         ← ⚠️ IGNORADO POR GIT — copia de trabajo
+├── MANUAL.md                   ← Guía completa de uso y flujo de trabajo
+├── README.md                   ← Este archivo
+└── .gitignore
 ```
 
 ---
@@ -33,136 +45,143 @@ Pitaya_System_Access/
 | Requisito | Detalle |
 |---|---|
 | **Windows** | 10 / 11 (64-bit) |
-| **Microsoft Access** | 2016 / 2019 / 2021 / 365 (cualquier versión con Office 16.0) |
+| **Microsoft Access** | 2016 / 2019 / 2021 / 365 (Office 16.0) |
 | **PowerShell** | 5.1 o superior (incluido en Windows) |
-| **Pitaya_System.accdb** | Debe existir en la ruta configurada (ver abajo) |
+| **Python + pyodbc** | Solo si usas `-ExportTableData` |
+| **Pitaya_System.accdb** | En `C:\...\Desktop\Sistema\` |
 
-> **Office Click-to-Run (Microsoft 365 / 2024):** el script lanza Access como proceso y se conecta a él automáticamente. No requiere configuración adicional.
+> **Office Click-to-Run (Microsoft 365 / 2024):** el script lanza Access
+> como proceso y se conecta automáticamente. No requiere configuración adicional.
 
 ---
 
-## Configuración de ruta del .accdb
+## Estructura de carpetas esperada en tu PC
 
-### Ruta por defecto (estructura estándar de Pitaya)
-
-El script asume que el repositorio se clona dentro de la siguiente estructura:
+El repositorio debe clonarse dentro de esta estructura para que las rutas
+automáticas funcionen:
 
 ```
 C:\Users\<usuario>\Desktop\Sistema\
-├── Pitaya_System.accdb             ← archivo original
+├── Pitaya_System.accdb              ← archivo oficial
 └── Pitaya Web\
     └── VisualCode\
-        └── Pitaya_System_Access\   ← este repositorio
+        └── Pitaya_System_Access\    ← este repositorio
             └── scripts\
                 └── Export-AccessVBA.ps1
 ```
 
-Con esta estructura, el script encuentra `Pitaya_System.accdb` automáticamente subiendo **4 niveles** desde `scripts\`.
-
-### Si el .accdb está en otra ubicación
-
-Pasa la ruta como parámetro al ejecutar:
-
-```powershell
-.\scripts\Export-AccessVBA.ps1 -AccdbPath "C:\ruta\personalizada\Pitaya_System.accdb"
-```
+Con esta estructura, los scripts encuentran el `.accdb` automáticamente.
+Si está en otra ubicación, usa `-AccdbPath` al llamar el script.
 
 ---
 
-## Cómo usar — Primera vez (o nueva PC)
-
-### 1. Clonar el repositorio
+## Primera instalación (PC nueva)
 
 ```powershell
-# Navega a la carpeta correcta ANTES de clonar
+# 1. Ir a la carpeta correcta ANTES de clonar
 cd "C:\Users\TU_USUARIO\Desktop\Sistema\Pitaya Web\VisualCode"
 
+# 2. Clonar
 git clone https://github.com/MiguelGotea/Pitaya_System_Access.git
-```
-
-### 2. Verificar que el .accdb existe
-
-```powershell
-# Debe mostrar el archivo (no error)
-Test-Path "C:\Users\TU_USUARIO\Desktop\Sistema\Pitaya_System.accdb"
-```
-
-### 3. Ejecutar el script de exportación
-
-```powershell
 cd Pitaya_System_Access
 
-# Ejecución normal (ruta automática)
+# 3. Verificar que el .accdb existe
+Test-Path "C:\Users\TU_USUARIO\Desktop\Sistema\Pitaya_System.accdb"
+
+# 4. Exportar para sincronizar todo
 powershell -ExecutionPolicy Bypass -File .\scripts\Export-AccessVBA.ps1
-
-# O si el .accdb está en otra ruta
-powershell -ExecutionPolicy Bypass -File .\scripts\Export-AccessVBA.ps1 -AccdbPath "C:\ruta\Pitaya_System.accdb"
-```
-
-El script:
-1. Copia `Pitaya_System.accdb` → `db\Pitaya_System.accdb` (ignorado por git)
-2. Lanza Microsoft Access en segundo plano
-3. Extrae **todo el código VBA** a `vba\formularios\`, `vba\informes\`, `vba\modulos\`, `vba\clases\`
-4. Extrae **el SQL de todas las consultas** a `sql\queries\`
-5. Cierra Access automáticamente
-6. Genera `export_log.txt` con el resumen detallado
-
-### 4. Subir los cambios a GitHub
-
-```powershell
-git add .
-git commit -m "feat: exportar VBA y SQL - $(Get-Date -Format 'yyyy-MM-dd')"
-git push origin main
 ```
 
 ---
 
-## Flujo de trabajo diario
+## Los tres scripts
+
+### Export — Desglosar el .accdb
+
+```powershell
+# Exportar VBA + consultas + DDL de tablas (uso normal)
+powershell -ExecutionPolicy Bypass -File .\scripts\Export-AccessVBA.ps1
+
+# También exportar datos de tablas como INSERT INTO
+powershell -ExecutionPolicy Bypass -File .\scripts\Export-AccessVBA.ps1 -ExportTableData
+```
+
+**Qué exporta:**
+
+| Tipo | Carpeta | Bidireccional |
+|---|---|:---:|
+| Código VBA formularios | `vba/formularios/` | ✅ |
+| Código VBA informes | `vba/informes/` | ✅ |
+| Módulos estándar | `vba/modulos/` | ✅ |
+| Módulos de clase | `vba/clases/` | ✅ |
+| SQL de consultas | `sql/queries/` | ⚠️ Solo ida |
+| DDL estructura tablas | `sql/tables/` | ❌ Solo docs |
+
+> ⚠️ **Nota importante:** el diseño visual de formularios e informes
+> (controles, layouts, propiedades) **no se exporta**. Solo el código VBA.
+
+---
+
+### Import — Reensamblar en la copia de trabajo
+
+```powershell
+# Importar todos los archivos .bas/.cls
+powershell -ExecutionPolicy Bypass -File .\scripts\Import-AccessVBA.ps1
+
+# Solo los archivos modificados según git (más rápido)
+powershell -ExecutionPolicy Bypass -File .\scripts\Import-AccessVBA.ps1 -OnlyChanged
+
+# Ver qué se importaría sin hacer cambios
+powershell -ExecutionPolicy Bypass -File .\scripts\Import-AccessVBA.ps1 -DryRun
+```
+
+> **El Import escribe en `db\Pitaya_System.accdb` (la copia), no en el original.**
+> Cuando hayas verificado que funciona, copia manualmente
+> `db\Pitaya_System.accdb` → `C:\...\Sistema\Pitaya_System.accdb`.
+
+---
+
+### Push — Subir a GitHub
+
+```powershell
+# Con mensaje automático
+powershell -ExecutionPolicy Bypass -File .\scripts\gitpush.ps1
+
+# Con mensaje descriptivo (recomendado)
+powershell -ExecutionPolicy Bypass -File .\scripts\gitpush.ps1 "feat: descripción del cambio"
+```
+
+---
+
+## Flujo de trabajo (resumen)
 
 ```
-Modificas código en Access
-        ↓
-Guardas los cambios en Access
-        ↓
-Ejecutas Export-AccessVBA.ps1
-        ↓
-git add . → git commit → git push
+1. Export   → desglosar .accdb actual en vba\ y sql\
+2. Editar   → modificar .bas en VS Code (con IA o manualmente)
+3. Import   → reensamblar cambios en db\Pitaya_System.accdb
+4. Verificar→ abrir db\ en Access y probar
+5. Promover → copiar db\ → Sistema\ (manual, cuando estés seguro)
+6. Export   → re-sincronizar vba\ con el estado final del .accdb
+7. Push     → documentar cambios en GitHub con historial
 ```
+
+> ⚠️ **El paso 6 (re-export antes del push) es importante.**
+> Access puede hacer ajustes automáticos al importar. El re-export asegura
+> que git refleja el estado real del `.accdb`.
+
+📖 Ver [MANUAL.md](MANUAL.md) para el flujo detallado, escenarios y referencia completa.
 
 ---
 
 ## Qué incluye y qué excluye Git
 
-| ✅ Incluido en Git | ❌ Excluido (en .gitignore) |
+| ✅ Incluido en Git | ❌ Excluido (.gitignore) |
 |---|---|
-| Todo el código VBA `.bas` / `.cls` | `db\` — el archivo .accdb (~216 MB) |
-| SQL de consultas `.sql` | `export_log.txt` — log local |
-| `scripts\Export-AccessVBA.ps1` | `*.log` — cualquier log |
-| `README.md` / `.gitignore` | `.DS_Store`, `Thumbs.db` |
-
----
-
-## Descripción de componentes VBA exportados
-
-### `vba\formularios\` — Formularios (Form_*)
-Código VBA detrás de cada formulario de Access. Equivale a lo que ves en el VBA Editor (Alt+F11) bajo cada `Form_NombreFormulario`.
-
-Ejemplos: `Form_Menu Principal.bas`, `Form_PanelDescargaExcelConsumoDirecto.bas`
-
-### `vba\informes\` — Informes (Report_*)
-Código VBA detrás de cada informe de Access.
-
-Ejemplos: `Report_Boleta.bas`, `Report_VentasCliente.bas`
-
-### `vba\modulos\` — Módulos estándar
-Módulos de código reutilizable (funciones y subrutinas globales).
-
-Ejemplos: `AccessHostinger.bas`, `Delivery.bas`, `modulo_sync_ventas.bas`
-
-### `sql\queries\` — Consultas SQL
-SQL de cada consulta guardada en Access (equivalente a las Queries en el panel de navegación).
-
-Ejemplos: `InformeDiario.sql`, `ResumenVentasMesExcel.sql`
+| Código VBA `.bas` / `.cls` | `db\` — el .accdb de trabajo (~216 MB) |
+| SQL de consultas `.sql` | `*.log` — logs locales |
+| DDL de tablas `.sql` | `.DS_Store`, `Thumbs.db` |
+| Los tres scripts `.ps1` | `.vscode/`, `.idea/` |
+| `README.md`, `MANUAL.md`, `.gitignore` | |
 
 ---
 
@@ -173,40 +192,46 @@ Ejemplos: `InformeDiario.sql`, `ResumenVentasMesExcel.sql`
 Verifica que Pitaya_System.accdb existe en:
 C:\Users\TU_USUARIO\Desktop\Sistema\Pitaya_System.accdb
 
-O pasa la ruta manualmente con -AccdbPath
+O pasa la ruta manualmente:
+.\scripts\Export-AccessVBA.ps1 -AccdbPath "C:\ruta\Pitaya_System.accdb"
 ```
 
 ### Access no se conecta / timeout
 ```
-1. Cierra Access si está abierto manualmente
+1. Cierra cualquier instancia de Access abierta manualmente
 2. Vuelve a ejecutar el script
-El script abre su propia instancia de Access automáticamente.
+Los scripts gestionan su propia instancia de Access automáticamente.
 ```
 
 ### "La directiva de ejecución no permite..."
 ```powershell
-# Solución: usar el flag -ExecutionPolicy Bypass al llamar el script
 powershell -ExecutionPolicy Bypass -File .\scripts\Export-AccessVBA.ps1
 ```
 
-### Módulos duplicados entre ejecuciones
-El script sobreescribe los archivos en cada ejecución. No hay duplicados — siempre refleja el estado actual del .accdb.
+### "La base de datos ya está abierta"
+```
+Ocurre si una ejecución anterior quedó colgada.
+Los scripts limpian instancias anteriores automáticamente al inicio.
+Si persiste, cierra Access desde el Administrador de tareas y reintenta.
+```
 
 ---
 
-## Estadísticas del proyecto (última exportación)
+## Estadísticas del proyecto
 
 | Categoría | Cantidad |
 |---|---|
 | Formularios (`Form_*.bas`) | 377 |
 | Informes (`Report_*.bas`) | 36 |
 | Módulos estándar (`.bas`) | 40 |
-| Consultas SQL (`.sql`) | 58 |
-| **Total archivos** | **511** |
+| SQL Consultas (`.sql`) | 58 |
+| SQL Tablas DDL (`.sql`) | 104 |
+| **Total archivos versionados** | **615** |
 
 ---
 
-## Repositorio relacionado
+## Repositorio
 
 - **GitHub:** [MiguelGotea/Pitaya_System_Access](https://github.com/MiguelGotea/Pitaya_System_Access)
 - **Base de datos:** `Pitaya_System.accdb` — sistema principal Pitaya (Access 2024)
+- **Manual completo:** [MANUAL.md](MANUAL.md)
