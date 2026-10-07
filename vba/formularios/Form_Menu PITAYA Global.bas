@@ -59,7 +59,7 @@ On Error GoTo Nulo
 Dim numeroclub As String
 numeroclub = InputBox("Ingresar numero de membresia asignado", "Membresia")
 
-If CLng(numeroclub) < 1000 Then
+If Cint(numeroclub) < 1000 Then
     MsgBox "Ingresar numero valido de MEMBRESIA, volver a facturar"
     Exit Sub
 End If
