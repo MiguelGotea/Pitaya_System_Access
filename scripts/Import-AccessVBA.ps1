@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Importa cambios de archivos .bas / .cls de vuelta al archivo Pitaya_System.accdb.
     Operacion INVERSA a Export-AccessVBA.ps1.
@@ -33,8 +33,9 @@
 #>
 
 param(
-    # Por defecto importa al original (no a la copia en db\)
-    [string]$AccdbTarget = (Join-Path $PSScriptRoot "..\..\..\..\Pitaya_System.accdb"),
+    # Por defecto trabaja sobre la COPIA en db\ — nunca toca el original automaticamente
+    # Cuando estes listo, copia db\Pitaya_System.accdb manualmente a tu carpeta Sistema\
+    [string]$AccdbTarget = (Join-Path (Split-Path $PSScriptRoot -Parent) "db\Pitaya_System.accdb"),
     [switch]$OnlyChanged,
     [switch]$DryRun
 )
@@ -318,7 +319,9 @@ Write-Log "  Log: import_log.txt" "Cyan"
 Write-Log "==========================================================" "Yellow"
 Write-Log "" "White"
 Write-Log "  SIGUIENTE PASO RECOMENDADO:" "Yellow"
-Write-Log "  1. Abre Access y verifica los cambios" "White"
-Write-Log "  2. Ejecuta Export-AccessVBA.ps1 para sincronizar" "White"
-Write-Log "  3. Ejecuta gitpush.ps1 para subir a GitHub" "White"
+Write-Log "  1. Abre y prueba:  db\Pitaya_System.accdb" "White"
+Write-Log "  2. Si todo OK, copia manualmente:" "White"
+Write-Log "     db\Pitaya_System.accdb  -->  C:\...\Sistema\Pitaya_System.accdb" "White"
+Write-Log "  3. Ejecuta Export-AccessVBA.ps1 para sincronizar vba\ y sql\" "White"
+Write-Log "  4. Ejecuta gitpush.ps1 para documentar en GitHub" "White"
 Write-Log "==========================================================" "Yellow"
