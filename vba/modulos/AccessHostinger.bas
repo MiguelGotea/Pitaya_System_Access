@@ -1,4 +1,4 @@
-﻿' ==========================================================
+' ==========================================================
 ' Modulo  : AccessHostinger
 ' Tipo    : 1  |  Lineas: 379
 ' Proyecto: Database3
@@ -292,6 +292,16 @@ Sub ExportarTablaCompletaHostinger(tablaOrigen As String, tablaDestino As String
     totalRegistros = 0
     sqlBatch = ""
     
+    ' Log de errores por fila (nunca se pierde un registro silenciosamente)
+    Dim erroresLog As String
+    Dim totalErrores As Long
+    erroresLog = ""
+    totalErrores = 0
+    
+    ' Guardar filas del lote actual para retry en caso de fallo del batch
+    Dim filasLote() As String
+    ReDim filasLote(tamLote - 1)
+    
     Do While Not rs.EOF
         ' Construir la tupla: (val1, val2, ...)
         sqlFila = "("
@@ -301,28 +311,25 @@ Sub ExportarTablaCompletaHostinger(tablaOrigen As String, tablaDestino As String
         Next I
         sqlFila = sqlFila & ")"
         
-        If Len(sqlBatch) = 0 Then
-            sqlBatch = sqlCampos & vbCrLf & sqlFila
-        Else
-            sqlBatch = sqlBatch & ", " & vbCrLf & sqlFila
-        End If
+        ' Guardar fila en el array del lote para posible retry
+        filasLote(contador) = sqlFila
         
         contador = contador + 1
         totalRegistros = totalRegistros + 1
         
-        ' Si completamos el lote, enviamos a Hostinger
+        ' Si completamos el lote, intentar enviar; si falla, retry fila a fila
         If contador >= tamLote Then
-            cn.Execute sqlBatch & ";"
-            sqlBatch = ""
+            Call EnviarLoteConRetry(cn, sqlCampos, filasLote, contador, erroresLog, totalErrores)
             contador = 0
+            ReDim filasLote(tamLote - 1)
         End If
         
         rs.MoveNext
     Loop
     
     ' Enviar los registros restantes del último lote si quedaron pendientes
-    If Len(sqlBatch) > 0 Then
-        cn.Execute sqlBatch & ";"
+    If contador > 0 Then
+        Call EnviarLoteConRetry(cn, sqlCampos, filasLote, contador, erroresLog, totalErrores)
     End If
     
     ' Limpieza
@@ -331,7 +338,19 @@ Sub ExportarTablaCompletaHostinger(tablaOrigen As String, tablaDestino As String
     cn.Close
     Set cn = Nothing
     
-    MsgBox "Tabla '" & tablaOrigen & "' exportada con éxito a Hostinger (" & totalRegistros & " registros).", vbInformation
+    ' Reporte final
+    Dim msg As String
+    msg = "Tabla '" & tablaOrigen & "' exportada a Hostinger." & vbCrLf & _
+          "  Registros procesados : " & totalRegistros & vbCrLf & _
+          "  Enviados con \u00e9xito   : " & (totalRegistros - totalErrores) & vbCrLf & _
+          "  Errores de fila      : " & totalErrores
+    
+    If totalErrores > 0 Then
+        msg = msg & vbCrLf & vbCrLf & "Detalle de errores:" & vbCrLf & erroresLog
+        MsgBox msg, vbExclamation, "Exportaci\u00f3n completada con errores"
+    Else
+        MsgBox msg, vbInformation, "Exportaci\u00f3n exitosa"
+    End If
     Exit Sub
 
 ErrorHandler:
@@ -339,6 +358,49 @@ ErrorHandler:
     If Not rs Is Nothing Then rs.Close: Set rs = Nothing
     If Not cn Is Nothing Then cn.Close: Set cn = Nothing
     MsgBox "Error al exportar tabla '" & tablaOrigen & "': " & Err.Description, vbCritical
+End Sub
+
+' --------------------------------------------------------------
+' Intenta enviar un lote completo; si falla, reintenta fila a fila
+' para nunca perder registros y detectar cu\u00e1l fila espec\u00edfica falla
+' --------------------------------------------------------------
+Private Sub EnviarLoteConRetry(cn As Object, sqlCampos As String, _
+                                filasLote() As String, numFilas As Long, _
+                                ByRef erroresLog As String, ByRef totalErrores As Long)
+    Dim sqlBatchR As String
+    Dim J As Long
+    
+    ' Armar batch completo
+    sqlBatchR = sqlCampos & vbCrLf & filasLote(0)
+    For J = 1 To numFilas - 1
+        sqlBatchR = sqlBatchR & ", " & vbCrLf & filasLote(J)
+    Next J
+    
+    ' Intentar batch (r\u00e1pido)
+    On Error Resume Next
+    cn.Execute sqlBatchR & ";"
+    Dim batchOK As Boolean
+    batchOK = (Err.Number = 0)
+    Err.Clear
+    On Error GoTo 0
+    
+    If batchOK Then Exit Sub  ' \u00c9xito, nada m\u00e1s que hacer
+    
+    ' El batch fall\u00f3 \u2192 reintentar fila por fila para no perder ning\u00fan registro
+    Dim sqlFilaR As String
+    For J = 0 To numFilas - 1
+        sqlFilaR = sqlCampos & vbCrLf & filasLote(J) & ";"
+        On Error Resume Next
+        cn.Execute sqlFilaR
+        If Err.Number <> 0 Then
+            totalErrores = totalErrores + 1
+            erroresLog = erroresLog & _
+                "  [Fila " & (J + 1) & " del lote] Error " & Err.Number & ": " & Err.Description & vbCrLf & _
+                "  Valores: " & Left(filasLote(J), 200) & vbCrLf
+            Err.Clear
+        End If
+        On Error GoTo 0
+    Next J
 End Sub
 
 ' -------------------------------------------------------------
@@ -351,36 +413,49 @@ Private Function FormatearValorParaMySQL(fld As DAO.Field) As String
     End If
     
     Select Case fld.Type
+    
         Case dbBoolean
-            ' MySQL maneja TINYINT(1): 1 o 0
-            If fld.Value = True Then
-                FormatearValorParaMySQL = "1"
-            Else
-                FormatearValorParaMySQL = "0"
-            End If
+            FormatearValorParaMySQL = IIf(fld.Value = True, "1", "0")
             
         Case dbByte, dbInteger, dbLong
             FormatearValorParaMySQL = CStr(fld.Value)
+        
+        Case dbBigInt  ' = 16
+            FormatearValorParaMySQL = CStr(fld.Value)
             
         Case dbSingle, dbDouble, dbCurrency, dbDecimal, dbNumeric
-            ' Asegurar punto decimal '.' para evitar error de sintaxis en español ','
-            FormatearValorParaMySQL = Replace(CStr(fld.Value), ",", ".")
+            ' FIX: Format() con punto fijo evita el problema de locale español (1.234,56 → 1.234.56)
+            FormatearValorParaMySQL = Format(fld.Value, "0.########")
             
-        Case dbDate
-            ' Fechas estándar MySQL
+        Case dbDate, dbTime, dbTimeStamp  ' = 8, 22, 23
             If Hour(fld.Value) = 0 And Minute(fld.Value) = 0 And Second(fld.Value) = 0 Then
                 FormatearValorParaMySQL = "'" & Format(fld.Value, "yyyy-mm-dd") & "'"
             Else
                 FormatearValorParaMySQL = "'" & Format(fld.Value, "yyyy-mm-dd hh:nn:ss") & "'"
             End If
-            
-        Case Else
-            ' Texto: escapar comillas simples y barras invertidas
+        
+        Case dbLongBinary, dbBinary, dbVarBinary  ' = 11, 9, 17 — OLE / binarios
+            ' No se pueden serializar como texto plano; se omiten como NULL
+            FormatearValorParaMySQL = "NULL"
+        
+        Case dbGUID  ' = 15
+            ' Access retorna {xxxxxxxx-...}, MySQL espera 'xxxxxxxx-...' sin llaves
+            Dim g As String
+            g = CStr(fld.Value)
+            g = Replace(Replace(g, "{", ""), "}", "")
+            FormatearValorParaMySQL = "'" & g & "'"
+        
+        Case Else  ' dbText, dbMemo, dbChar y cualquier otro tipo texto
             Dim txt As String
             txt = CStr(fld.Value)
-            txt = Replace(txt, "\", "\\")
-            txt = Replace(txt, "'", "\'")
+            txt = Replace(txt, "\", "\\")        ' backslash
+            txt = Replace(txt, "'", "\'")         ' comilla simple
+            txt = Replace(txt, Chr(13), "\r")     ' FIX: carriage return (Memo)
+            txt = Replace(txt, Chr(10), "\n")     ' FIX: line feed (Memo)
+            txt = Replace(txt, Chr(0), "")        ' FIX: null byte — MySQL lo rechaza
             FormatearValorParaMySQL = "'" & txt & "'"
+            
     End Select
 End Function
+
 
