@@ -2,7 +2,7 @@
 ' Modulo  : Actualizar Sistema
 ' Tipo    : 1  |  Lineas: 1153
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:08
+' Exportado: 2026-10-14 21:56:07
 ' ==========================================================
 
 Option Compare Database
@@ -947,7 +947,7 @@ DoCmd.RunSQL "INSERT INTO SubPreIngresosPitaya SELECT * FROM [tSubPreIngresosPit
 DoCmd.SetWarnings True
 End Sub
 
-Sub importartablaespecificaAMixed(dborigen As String, tablaorigen As String, tablafinal As String)
+Sub importartablaespecificaAMixed(dborigen As String, tablaOrigen As String, tablafinal As String)
 'ttablatemporal es comodin de cualquier tabla que se copie
 
 Dim dborigenreal As String
@@ -974,7 +974,7 @@ Set fs = CreateObject("Scripting.FileSystemObject")
 fs.copyfile D, h, True
     
 'buscar la tabla en la copia de base de datos, cuando la encuentra crea la tabla temporal con esa base de datos, modo copiado normal no vvinculado
-DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaorigen, "ttablatemporal"
+DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaOrigen, "ttablatemporal"
 Kill (h)
 
 'Eliminar la tabla existente en la base de datos Mixed
@@ -993,7 +993,7 @@ DoCmd.TransferDatabase acExport, "Microsoft Access", M2, acTable, "ttablatempora
 DoCmd.SetWarnings True
 End Sub
 
-Sub importartablaespecifica(dborigen As String, tablaorigen As String, tablafinal As String, modo As Integer)
+Sub importartablaespecifica(dborigen As String, tablaOrigen As String, tablafinal As String, modo As Integer)
 'ttablatemporal es comodin de cualquier tabla que se copie
 'modo: 1 = copiar sobreescribir, si no existe lo crea, 2 = anexar, 3 = crea nueva tabla desde la creada temporal eliminando si ya existe
 
@@ -1022,7 +1022,7 @@ fs.copyfile D, h, True
 Select Case modo
 
     Case 1
-        DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaorigen, "ttablatemporal"
+        DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaOrigen, "ttablatemporal"
         
         'Vacia la tabla existente en la base de datos local
         DoCmd.SetWarnings False
@@ -1036,7 +1036,7 @@ Select Case modo
         DoCmd.SetWarnings True
     
     Case 2
-        DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaorigen, "ttablatemporal"
+        DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaOrigen, "ttablatemporal"
         
         'traspasa todos los datos de la tabla temporal a la tabla existente , si esta vinvulada igual la copia encima
         DoCmd.SetWarnings False
@@ -1049,7 +1049,7 @@ Select Case modo
             DoCmd.RunSQL "DROP TABLE [" & tablafinal & "]"
         End If
         
-        DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaorigen, tablafinal
+        DoCmd.TransferDatabase acImport, "Microsoft Access", h, acTable, tablaOrigen, tablafinal
 
 End Select
 

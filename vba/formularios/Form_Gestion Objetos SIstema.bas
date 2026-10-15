@@ -2,7 +2,7 @@
 ' Modulo  : Form_Gestion Objetos SIstema
 ' Tipo    : 100  |  Lineas: 17
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:10
+' Exportado: 2026-10-14 21:56:07
 ' ==========================================================
 
 Option Compare Database

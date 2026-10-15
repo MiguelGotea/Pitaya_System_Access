@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : CReceta
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT DBBatidos.Nombre, DBBatidos.Medida, DBIngredientes.Nombre, SubReceta.Cantidad, DBIngredientes.Unidad, DBBatidos.CodBatido

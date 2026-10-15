@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : Consumo semanal
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT DBIngredientes.Nombre, Sum([SubReceta]![Cantidad]*[SubPedido]![Cantidad]) AS Cantidad, DBIngredientes.Unidad, numerosemana([NotaDePedido]![Fecha]) AS Semana, DBIngredientes.Tipo

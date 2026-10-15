@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : FiltroIngredienteVigentes
 -- Campos   : 3
--- Exportado: 2026-10-07 07:17:26
+-- Exportado: 2026-10-14 21:56:14
 -- ==========================================================
 
 CREATE TABLE [FiltroIngredienteVigentes] (

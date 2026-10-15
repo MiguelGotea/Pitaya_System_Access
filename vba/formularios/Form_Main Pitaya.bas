@@ -2,7 +2,7 @@
 ' Modulo  : Form_Main Pitaya
 ' Tipo    : 100  |  Lineas: 586
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:15
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 Option Compare Database
@@ -197,13 +197,13 @@ If (Time - UltimoCierre()) * 24 * 60 < 60 Then 'da resultado minutos desde ultim
     Exit Sub
 End If
 
-Call importartablaespecifica("Despacho", "PreIngresoPitaya", "PreIngresoPitaya", 1)
-Call importartablaespecifica("Despacho", "SubPreIngresosPitaya", "SubPreIngresosPitaya", 1)
+'Call importartablaespecifica("Despacho", "PreIngresoPitaya", "PreIngresoPitaya", 1)
+'Call importartablaespecifica("Despacho", "SubPreIngresosPitaya", "SubPreIngresosPitaya", 1)
 
-If existepreingresopendientefecha(Me.fechasistema) > 0 And Time() > #5:00:00 PM# Then
-    MsgBox "Existen Preingresos que no han sido ingresados aun, corregir y dar ingreso a todos los ingresos pendientes de hoy para poder hacer cierre"
-    Exit Sub
-Else
+'If existepreingresopendientefecha(Me.fechasistema) > 0 And Time() > #5:00:00 PM# Then
+'    MsgBox "Existen Preingresos que no han sido ingresados aun, corregir y dar ingreso a todos los ingresos pendientes de hoy para poder hacer cierre"
+'    Exit Sub
+'Else
     
     Call actualizarmontoguardadopedidosdia(Date)
     DoCmd.OpenReport "HistorialVentasxPedidoDia", acViewReport, , "[Pago]='POS' AND [Fecha]=#" & Date & "#"
@@ -277,7 +277,7 @@ Else
         MsgBox "No se cargaron los datos correctamente, prueba abrir cierre otra vez"
     End If
     
-End If
+'End If
 
 Exit Sub
 Nulo:

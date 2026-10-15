@@ -2,7 +2,7 @@
 ' Modulo  : Form_AuditoriaCajaChica
 ' Tipo    : 100  |  Lineas: 68
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:19
+' Exportado: 2026-10-14 21:56:11
 ' ==========================================================
 
 Option Compare Database

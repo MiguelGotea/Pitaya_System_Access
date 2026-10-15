@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : FormulasPedidos
-' Tipo    : 1  |  Lineas: 2392
+' Tipo    : 1  |  Lineas: 2396
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:12
+' Exportado: 2026-10-14 21:56:08
 ' ==========================================================
 
 Option Compare Database
@@ -172,6 +172,10 @@ If rst("Anulado") = 0 Then
         PrecioReal = 90
         Case 237                   '2 batidos especiale 16oz por 198
         PrecioReal = 105
+        Case 271                   '2 Waffle x C$270
+        PrecioReal = 135
+        Case 272                   '2 Batidos premium x C$250
+        PrecioReal = 125
         Case 142                  '2 batidos con proteina  16oz por 179
         PrecioReal = 89.5
         Case 193                  '2 batidos con proteina  16oz por 179

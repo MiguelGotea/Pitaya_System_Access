@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : VentasGlobalesAccessCSVFiltradoClienteInternoExterno
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT v1.*, (

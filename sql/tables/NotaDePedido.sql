@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : NotaDePedido
 -- Campos   : 27
--- Exportado: 2026-10-07 07:17:28
+-- Exportado: 2026-10-14 21:56:15
 -- ==========================================================
 
 CREATE TABLE [NotaDePedido] (
@@ -33,7 +33,5 @@ CREATE TABLE [NotaDePedido] (
     [recibecor] TYPE_4,
     [recibedol] TYPE_4
 );
-
-ALTER TABLE [NotaDePedido] ADD PRIMARY KEY ([CodPedido]);
 
 

@@ -2,7 +2,7 @@
 ' Modulo  : Form_Relacion de Productos Venta
 ' Tipo    : 100  |  Lineas: 70
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:08
+' Exportado: 2026-10-14 21:56:07
 ' ==========================================================
 
 

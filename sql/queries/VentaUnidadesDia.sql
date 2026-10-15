@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : VentaUnidadesDia
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT numerosemana([NotaDePedido]![Fecha])<numerosemana(Date()) AS Semana, Hour([NotaDePedido]![Hora]) AS Hora, Weekday([NotaDePedido]![Fecha],2) AS Dia, numerosemana([NotaDePedido]![Fecha])>numerosemana(Date())-6 AS Semana2, Sum(FactorTiempoProduccion([SubPedido]![CodSubPedido])) AS Produccion

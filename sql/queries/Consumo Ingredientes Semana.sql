@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : Consumo Ingredientes Semana
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:12
 -- ==========================================================
 
 SELECT DBIngredientes.Nombre, Sum([SubReceta]![Cantidad]*[SubPedido]![Cantidad]/4) AS Consumo

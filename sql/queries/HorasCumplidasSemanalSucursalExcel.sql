@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : HorasCumplidasSemanalSucursalExcel
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT Operarios.CodOperario, NombreOperario([Operarios]![CodOperario]) AS Nombre, numerosemana([FechaSistema]![Dates]) AS sema, MaxMinSemana(numerosemana([FechaSistema]![Dates]),0) AS Desde, MaxMinSemana(numerosemana([FechaSistema]![Dates]),1) AS Hasta, HorasSemanalesCumplidasSinRedondeo(numerosemana([FechaSistema]![Dates]),[Operarios]![CodOperario]) AS Horas, [FechaSistema]![Dates] Between [Formularios]![Pago Personal]![desde] And [Formularios]![Pago Personal]![hasta] AS Expr2, Operarios.Operativo, Operarios.Sucursal

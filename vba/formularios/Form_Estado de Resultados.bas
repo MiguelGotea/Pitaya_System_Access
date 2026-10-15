@@ -2,7 +2,7 @@
 ' Modulo  : Form_Estado de Resultados
 ' Tipo    : 100  |  Lineas: 10
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:11
+' Exportado: 2026-10-14 21:56:08
 ' ==========================================================
 
 Option Compare Database

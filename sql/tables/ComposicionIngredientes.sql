@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : ComposicionIngredientes
 -- Campos   : 12
--- Exportado: 2026-10-07 07:17:25
+-- Exportado: 2026-10-14 21:56:14
 -- ==========================================================
 
 CREATE TABLE [ComposicionIngredientes] (

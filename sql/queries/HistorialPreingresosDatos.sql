@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : HistorialPreingresosDatos
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT numerosemana([PreIngresoPitaya]![Fecha]) AS aSemana, nombreproductocoti([SubPreIngresosPitaya]![CodCotizacion]) AS Nombre, PreIngresoPitaya.Fecha, SubPreIngresosPitaya.Cantidad, DBIngredientes.Tipo, DBIngredientes.TIPO1, DBIngredientes.TIPO2, SubPreIngresosPitaya.CodCotizacion, PreIngresoPitaya.Destino

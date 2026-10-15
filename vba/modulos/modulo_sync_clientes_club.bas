@@ -2,7 +2,7 @@
 ' Modulo  : modulo_sync_clientes_club
 ' Tipo    : 1  |  Lineas: 285
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:21
+' Exportado: 2026-10-14 21:56:12
 ' ==========================================================
 
 Option Compare Database

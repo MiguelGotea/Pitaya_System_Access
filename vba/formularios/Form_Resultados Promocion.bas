@@ -2,7 +2,7 @@
 ' Modulo  : Form_Resultados Promocion
 ' Tipo    : 100  |  Lineas: 110
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:09
+' Exportado: 2026-10-14 21:56:07
 ' ==========================================================
 
 Option Compare Database

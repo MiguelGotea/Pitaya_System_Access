@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : CompraInterSemanal
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:12
 -- ==========================================================
 
 SELECT DBIngredientes.Nombre, Sum([SubPedido]![Cantidad]*[SubReceta]![Cantidad]*FactorDeUso([SubReceta]![CodIngrediente],[SubPedido]![CodPedido])*(StockDeSeguridad([DBIngredientes]![CodIngrediente])+1)/3) AS PEDIDO, DBIngredientes.Unidad, Cotizaciones.Marca, Cotizaciones.Capacidad, Cotizaciones.Unidad, DBIngredientes.CodIngrediente

@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : Venta Batidos
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT DBBatidos.Nombre, Sum(SubPedido.Cantidad) AS SumaDeCantidad, numerosemana([NotaDePedido]![Fecha]) AS Semana, Grupos.NombreGrupo

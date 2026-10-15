@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_AgregarReceta
-' Tipo    : 100  |  Lineas: 374
+' Tipo    : 100  |  Lineas: 380
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:16
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 Option Compare Database
@@ -222,6 +222,12 @@ Dim codigoantiguo As String
 Dim ValidarTipoBati As Integer
 
 miSQL = "SELECT DBBatidos.CodBatido, DBBatidos.Vigencia, DBBatidos.CodGrupo, DBBatidos.Nombre" & _
+" FROM DBBatidos" & _
+" WHERE (((DBBatidos.Vigencia)<>0) AND ((DBBatidos.CodGrupo)=" & Me.grupomasivo & ")" & _
+" AND ((Right([DBBatidos.CodBatido],1))='d'))" & _
+" ORDER BY DBBatidos.Nombre, DBBatidos.CodBatido"
+
+'miSQL = "SELECT DBBatidos.CodBatido, DBBatidos.Vigencia, DBBatidos.CodGrupo, DBBatidos.Nombre" & _
 " FROM DBBatidos" & _
 " WHERE (((DBBatidos.Vigencia)<>0) AND ((DBBatidos.CodGrupo)=" & Me.grupomasivo & "))" & _
 " ORDER BY DBBatidos.Nombre, DBBatidos.CodBatido"

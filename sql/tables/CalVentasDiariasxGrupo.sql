@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : CalVentasDiariasxGrupo
 -- Campos   : 7
--- Exportado: 2026-10-07 07:17:24
+-- Exportado: 2026-10-14 21:56:14
 -- ==========================================================
 
 CREATE TABLE [CalVentasDiariasxGrupo] (

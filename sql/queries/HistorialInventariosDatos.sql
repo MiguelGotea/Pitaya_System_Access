@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : HistorialInventariosDatos
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT numerosemana([Inventario Cotizacion]![Fecha]) AS aSemana, Cotizaciones.Conversion, Cotizaciones.Unidad, DBIngredientes.NombreSinProcesar, nombreproductocotiprocesado([Inventario Cotizacion]![CodCotizacion]) AS Nombre, [Inventario Cotizacion].Fecha, Sum([Inventario Cotizacion].Cantidad) AS SumaDeCantidad, DBIngredientes.Tipo, DBIngredientes.TIPO1, DBIngredientes.TIPO2, [Inventario Cotizacion].CodCotizacion, codigolocal() AS [local], PorcionDentroDeMezcla([Inventario Cotizacion]![CodCotizacion]) AS mezcla

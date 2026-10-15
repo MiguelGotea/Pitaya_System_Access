@@ -2,7 +2,7 @@
 ' Modulo  : Form_Resumen Pagos Proovedor
 ' Tipo    : 100  |  Lineas: 147
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:14
+' Exportado: 2026-10-14 21:56:09
 ' ==========================================================
 
 Option Compare Database

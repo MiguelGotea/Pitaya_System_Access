@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Contador Caja
-' Tipo    : 100  |  Lineas: 149
+' Tipo    : 100  |  Lineas: 150
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:16
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 Option Compare Database
@@ -22,8 +22,8 @@ Select Case Me.titulo1
             'Application.FollowHyperlink "https://erp.batidospitaya.com"
         
         Else
-        
-            If MontoCierre(Date - 1, "T") <> Me.ssubtotal Then ' cuando se copia centro de formacion no pide caja inicial ni ferias
+
+            If MontoCierre(Date - 1, "T") - Me.ssubtotal > 1 Or MontoCierre(Date - 1, "T") - Me.ssubtotal < -1 Then  ' cuando se copia centro de formacion no pide caja inicial ni ferias
                 MsgBox "El dinero ingresado no coincide con el monto dejado en el cierre anterior, verifficar conteo nuevamente"
                 Exit Sub
             Else
@@ -40,6 +40,7 @@ Select Case Me.titulo1
                 'Application.FollowHyperlink "https://erp.batidospitaya.com"
     
             End If
+
         End If
         
     Case "NUEVO CONTEO DE CAJA" ' segundo conteo de caja de cierre

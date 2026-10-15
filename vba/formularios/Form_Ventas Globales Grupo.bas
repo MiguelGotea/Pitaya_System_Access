@@ -2,7 +2,7 @@
 ' Modulo  : Form_Ventas Globales Grupo
 ' Tipo    : 100  |  Lineas: 6
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:09
+' Exportado: 2026-10-14 21:56:07
 ' ==========================================================
 
 Option Compare Database

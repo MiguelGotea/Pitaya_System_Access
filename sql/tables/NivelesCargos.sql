@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : NivelesCargos
--- Campos   : 18
--- Exportado: 2026-10-07 07:17:28
+-- Campos   : 17
+-- Exportado: 2026-10-14 21:56:15
 -- ==========================================================
 
 CREATE TABLE [NivelesCargos] (
@@ -21,7 +21,6 @@ CREATE TABLE [NivelesCargos] (
     [modulo_ruta] VARCHAR(255),
     [operativo] TYPE_1,
     [usuario_virtual] TYPE_1,
-    [usuario_tienda] TYPE_1,
     [cargo_tienda] TYPE_1
 );
 

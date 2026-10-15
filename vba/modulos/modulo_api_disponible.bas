@@ -2,7 +2,7 @@
 ' Modulo  : modulo_api_disponible
 ' Tipo    : 1  |  Lineas: 74
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:21
+' Exportado: 2026-10-14 21:56:12
 ' ==========================================================
 
 Option Compare Database
@@ -23,12 +23,12 @@ Public Function APIDisponible() As Boolean
     
     Set http = CreateObject("MSXML2.ServerXMLHTTP.6.0")
     http.Open "GET", API_TEST_URL, False
-    http.setTimeouts 3000, 3000, 3000, 3000 ' Solo 3 segundos máximo
+    http.setTimeouts 6000, 6000, 6000, 6000 ' Solo 3 segundos máximo
     
     http.send
     
     ' Verificar que responda en menos de 2 segundos y no sea Cloudflare
-    If (Timer - startTime) < 2 And http.Status = 200 Then
+    If (Timer - startTime) < 6 And http.Status = 200 Then
         If Not EsRespuestaCloudflare(http.responseText) Then
             APIDisponible = True
         Else

@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Relacion de Pedidos
-' Tipo    : 100  |  Lineas: 1389
+' Tipo    : 100  |  Lineas: 1413
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:10
+' Exportado: 2026-10-14 21:56:07
 ' ==========================================================
 
 Option Compare Database
@@ -247,6 +247,30 @@ Select Case prom
         '    resetearpromocion (codi)
         '    MsgBox "Promocion aplica a numero par de productos"
         'End If
+    Case 271 '2 Waffle x C$270
+
+        If grupy = 14 Then ' waffles
+            'aplic normal
+        Else
+            MsgBox "Promocion solo aplica waffles"
+            resetearpromocion (codi)
+        End If
+
+    Case 272 '2 Batidos premium x C$250
+
+        If DLookup("[Medida]", "[DBBatidos]", "[CodBatido]='" & batix & "'") = "Gigantona" Then
+            If grupy = 2 Then ' batidos   premium
+                'aplic normal
+            Else
+                MsgBox "Promocion solo aplica batidos Premium"
+                resetearpromocion (codi)
+            End If
+            
+        Else ' promocion aplicado solo a grandes
+            MsgBox "Promocion solo aplica a  batidos Normal 20oz"
+            resetearpromocion (codi)
+        End If
+
     Case 142 '3. 2 BATIDOS CON PROTEINA mediano x 179
         If cantiped / 2 - Round(cantiped / 2, 0) = 0 Then '' cantidad par
             If DLookup("[Medida]", "[DBBatidos]", "[CodBatido]='" & batix & "'") = "Mediano" Then

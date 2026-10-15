@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : HorariosSucursalesAprobados
 -- Campos   : 48
--- Exportado: 2026-10-07 07:17:27
+-- Exportado: 2026-10-14 21:56:15
 -- ==========================================================
 
 CREATE TABLE [HorariosSucursalesAprobados] (

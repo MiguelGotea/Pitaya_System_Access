@@ -2,7 +2,7 @@
 ' Modulo  : Form_ConsumoNoPorcionesPerecibles
 ' Tipo    : 100  |  Lineas: 42
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:14
+' Exportado: 2026-10-14 21:56:09
 ' ==========================================================
 
 Option Compare Database

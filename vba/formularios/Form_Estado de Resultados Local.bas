@@ -2,7 +2,7 @@
 ' Modulo  : Form_Estado de Resultados Local
 ' Tipo    : 100  |  Lineas: 119
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:09
+' Exportado: 2026-10-14 21:56:07
 ' ==========================================================
 
 Option Compare Database

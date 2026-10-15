@@ -1,13 +1,13 @@
 ﻿-- ==========================================================
 -- Tabla    : SubPedido
 -- Campos   : 15
--- Exportado: 2026-10-07 07:17:29
+-- Exportado: 2026-10-14 21:56:16
 -- ==========================================================
 
 CREATE TABLE [SubPedido] (
     [CodSubPedido] TYPE_4,
     [CodBatido] VARCHAR(255),
-    [Cantidad] TYPE_7 NOT NULL,
+    [Cantidad] TYPE_4 NOT NULL,
     [CodPedido] TYPE_4,
     [CodPromocion] TYPE_4,
     [Observaciones] VARCHAR(255),

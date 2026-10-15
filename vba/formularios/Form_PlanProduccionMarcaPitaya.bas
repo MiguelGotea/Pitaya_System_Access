@@ -2,7 +2,7 @@
 ' Modulo  : Form_PlanProduccionMarcaPitaya
 ' Tipo    : 100  |  Lineas: 68
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:17
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 Option Compare Database

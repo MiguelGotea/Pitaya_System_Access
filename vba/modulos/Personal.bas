@@ -2,7 +2,7 @@
 ' Modulo  : Personal
 ' Tipo    : 1  |  Lineas: 1211
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:13
+' Exportado: 2026-10-14 21:56:08
 ' ==========================================================
 
 Option Compare Database
@@ -36,7 +36,7 @@ Dim rst As DAO.Recordset
 Dim miSQL As String
 
 'Nombre y Apellido del operario segun codigo
-miSQL = "SELECT [Operarios]![Nombre] & ' ' & [Operarios]![Apellido] AS Name," & _
+miSQL = "SELECT [Operarios]![Nombre] & ' ' & [Operarios]![Apellido] & ' ' & [Operarios]![Apellido2] AS Name," & _
 " Operarios.CodOperario FROM Operarios WHERE (((Operarios.CodOperario)=" & cod & "))"
 Set rst = CurrentDb.OpenRecordset(miSQL, dbOpenDynaset)
 NombreOperario = rst("Name")

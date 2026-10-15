@@ -2,7 +2,7 @@
 ' Modulo  : Form_CompraProcesamientoSemana
 ' Tipo    : 100  |  Lineas: 86
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:16
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 Option Compare Database

@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Introduccion
-' Tipo    : 100  |  Lineas: 261
+' Tipo    : 100  |  Lineas: 250
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:15
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 Option Compare Database
@@ -44,17 +44,6 @@ End Sub
 
 Private Sub Comando1217_Click()
 'cerrar todo
-If Weekday(Date, 2) = 7 And Hour(Now) > 19 Then
-    MsgBox "Los domingos no se puede cerrar el sistema, ni apagar la computadora"
-    Exit Sub
-End If
-
-If Weekday(Date, 2) = 7 And Hour(Now) > 12 Then
-    If MsgBox("Los domingos no se tiene que apagar la computadora y dejar el sistema abierto, desea cerrar de todas maneras?", vbYesNo, "Alerta de Domingo") = vbNo Then
-        Exit Sub
-    Else
-    End If
-End If
 
 
 [Forms]![Introduccion].Comando1437.Enabled = False 'Gestion

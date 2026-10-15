@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : AccessHostinger
-' Tipo    : 1  |  Lineas: 221
+' Tipo    : 1  |  Lineas: 379
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:19
+' Exportado: 2026-10-14 21:56:11
 ' ==========================================================
 
 Option Compare Database
@@ -226,3 +226,161 @@ ruta = "C:\Users\" & NombreSistema() & "\Google Drive BP\Base de Datos Web\Actua
 condic = ""
 Call ExportarCSVConsultaCondicional("ResumenMembresiasHostingerCSV", condic, ruta)
 End Sub
+
+
+
+
+
+
+' ==========================================================
+' Exportar una tabla completa a MySQL Hostinger de forma ultra-rápida
+' mediante INSERTs masivos por lotes (Batch / Multi-row INSERT)
+' ==========================================================
+Sub ExportarTablaCompletaHostinger(tablaOrigen As String, tablaDestino As String, Optional Tipooperacion As Integer = 2)
+    ' Tipooperacion:
+    ' 1 = Anexar
+    ' 2 = Vaciar (TRUNCATE/DELETE) y cargar completa
+    On Error GoTo ErrorHandler
+    
+    Dim cn As Object
+    Dim rs As DAO.Recordset
+    Dim fld As DAO.Field
+    Dim sqlCampos As String
+    Dim sqlBatch As String
+    Dim sqlFila As String
+    Dim contador As Long
+    Dim totalRegistros As Long
+    Dim tamLote As Integer
+    Dim I As Integer
+    
+    tamLote = 300 ' Registros por cada viaje de red (óptimo para MySQL en WAN)
+    
+    ' 1. Abrir datos locales en Access (Lectura rápida en memoria)
+    Set rs = CurrentDb.OpenRecordset(tablaOrigen, dbOpenSnapshot)
+    If rs.EOF And rs.BOF Then
+        rs.Close: Set rs = Nothing
+        MsgBox "La tabla origen '" & tablaOrigen & "' no contiene registros.", vbInformation
+        Exit Sub
+    End If
+    
+    ' 2. Conectar a MySQL Hostinger
+    Set cn = CreateObject("ADODB.Connection")
+    cn.Open stringdeconexion()
+    
+    ' 3. Limpiar tabla si es Tipooperacion = 2
+    If Tipooperacion = 2 Then
+        On Error Resume Next
+        cn.Execute "TRUNCATE TABLE " & tablaDestino & ";"
+        If Err.Number <> 0 Then
+            ' Si TRUNCATE falla por claves foráneas, usamos DELETE
+            Err.Clear
+            cn.Execute "DELETE FROM " & tablaDestino & ";"
+        End If
+        On Error GoTo ErrorHandler
+    End If
+    
+    ' 4. Armar la lista de nombres de campos: (`col1`, `col2`, ...)
+    sqlCampos = "INSERT INTO " & tablaDestino & " ("
+    For I = 0 To rs.Fields.Count - 1
+        sqlCampos = sqlCampos & "`" & rs.Fields(I).Name & "`"
+        If I < rs.Fields.Count - 1 Then sqlCampos = sqlCampos & ", "
+    Next I
+    sqlCampos = sqlCampos & ") VALUES "
+    
+    ' 5. Recorrer registros y agrupar en lotes
+    contador = 0
+    totalRegistros = 0
+    sqlBatch = ""
+    
+    Do While Not rs.EOF
+        ' Construir la tupla: (val1, val2, ...)
+        sqlFila = "("
+        For I = 0 To rs.Fields.Count - 1
+            sqlFila = sqlFila & FormatearValorParaMySQL(rs.Fields(I))
+            If I < rs.Fields.Count - 1 Then sqlFila = sqlFila & ", "
+        Next I
+        sqlFila = sqlFila & ")"
+        
+        If Len(sqlBatch) = 0 Then
+            sqlBatch = sqlCampos & vbCrLf & sqlFila
+        Else
+            sqlBatch = sqlBatch & ", " & vbCrLf & sqlFila
+        End If
+        
+        contador = contador + 1
+        totalRegistros = totalRegistros + 1
+        
+        ' Si completamos el lote, enviamos a Hostinger
+        If contador >= tamLote Then
+            cn.Execute sqlBatch & ";"
+            sqlBatch = ""
+            contador = 0
+        End If
+        
+        rs.MoveNext
+    Loop
+    
+    ' Enviar los registros restantes del último lote si quedaron pendientes
+    If Len(sqlBatch) > 0 Then
+        cn.Execute sqlBatch & ";"
+    End If
+    
+    ' Limpieza
+    rs.Close
+    Set rs = Nothing
+    cn.Close
+    Set cn = Nothing
+    
+    MsgBox "Tabla '" & tablaOrigen & "' exportada con éxito a Hostinger (" & totalRegistros & " registros).", vbInformation
+    Exit Sub
+
+ErrorHandler:
+    On Error Resume Next
+    If Not rs Is Nothing Then rs.Close: Set rs = Nothing
+    If Not cn Is Nothing Then cn.Close: Set cn = Nothing
+    MsgBox "Error al exportar tabla '" & tablaOrigen & "': " & Err.Description, vbCritical
+End Sub
+
+' -------------------------------------------------------------
+' Función auxiliar para formatear tipos de datos de Access a MySQL
+' -------------------------------------------------------------
+Private Function FormatearValorParaMySQL(fld As DAO.Field) As String
+    If IsNull(fld.Value) Then
+        FormatearValorParaMySQL = "NULL"
+        Exit Function
+    End If
+    
+    Select Case fld.Type
+        Case dbBoolean
+            ' MySQL maneja TINYINT(1): 1 o 0
+            If fld.Value = True Then
+                FormatearValorParaMySQL = "1"
+            Else
+                FormatearValorParaMySQL = "0"
+            End If
+            
+        Case dbByte, dbInteger, dbLong
+            FormatearValorParaMySQL = CStr(fld.Value)
+            
+        Case dbSingle, dbDouble, dbCurrency, dbDecimal, dbNumeric
+            ' Asegurar punto decimal '.' para evitar error de sintaxis en español ','
+            FormatearValorParaMySQL = Replace(CStr(fld.Value), ",", ".")
+            
+        Case dbDate
+            ' Fechas estándar MySQL
+            If Hour(fld.Value) = 0 And Minute(fld.Value) = 0 And Second(fld.Value) = 0 Then
+                FormatearValorParaMySQL = "'" & Format(fld.Value, "yyyy-mm-dd") & "'"
+            Else
+                FormatearValorParaMySQL = "'" & Format(fld.Value, "yyyy-mm-dd hh:nn:ss") & "'"
+            End If
+            
+        Case Else
+            ' Texto: escapar comillas simples y barras invertidas
+            Dim txt As String
+            txt = CStr(fld.Value)
+            txt = Replace(txt, "\", "\\")
+            txt = Replace(txt, "'", "\'")
+            FormatearValorParaMySQL = "'" & txt & "'"
+    End Select
+End Function
+

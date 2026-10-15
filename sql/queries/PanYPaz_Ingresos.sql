@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : PanYPaz_Ingresos
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT IngresosPitaya.CodCotizacion, IngresosPitaya.Fecha, DBIngredientes.Nombre, IngresosPitaya.Cantidad, DBIngredientes.CodIngrediente

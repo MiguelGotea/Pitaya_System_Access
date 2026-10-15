@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Inicial
-' Tipo    : 100  |  Lineas: 52
+' Tipo    : 100  |  Lineas: 53
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:18
+' Exportado: 2026-10-14 21:56:11
 ' ==========================================================
 
 Option Compare Database
@@ -10,13 +10,14 @@ Option Compare Database
 Private Sub Comando24_Click()
 DoCmd.Save
 Me.Requery
-If cajainicial(Date) = 0 Then
+If cajainicial(Date) <= 0 Then
     MsgBox "Ingresar Caja Inicial"
     Call Comando25_Click
     [Forms]![Inicial].Form.SetFocus
     [Forms]![Contador Caja].Form.SetFocus
 Else
-    If MontoCierre(Me.Fecha - 1, "T") <> Me.Dinero Then
+    If MontoCierre(Date - 1, "T") - Me.Dinero > 1 Or MontoCierre(Date - 1, "T") - Me.Dinero < -1 Then
+    
         MsgBox "El dinero ingresado no coincide con el monto dejado en el cierre anterior, verifficar conteo nuevamente"
         DoCmd.OpenForm "Contador Caja", acNormal, , , acFormAdd
         [Forms]![Contador Caja]![titulo1] = "CONTEO DE CAJA INICIAL"

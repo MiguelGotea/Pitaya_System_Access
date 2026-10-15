@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ConsumoFresaTopping
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT SubReceta.CodIngrediente, SubReceta.Tipo, numerosemana([NotaDePedido]![Fecha])<numerosemana(Date()) And numerosemana([NotaDePedido]![Fecha])>numerosemana(Date())-5 AS rango, NotaDePedido.Anulado, Sum([SubReceta]![Cantidad]*[SubPedido]![Cantidad]) AS TotalGramos, "4 semanas" AS Tota

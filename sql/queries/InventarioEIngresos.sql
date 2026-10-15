@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : InventarioEIngresos
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT CodICotizacion, CodCotizacion, Cantidad, Fecha+1 as FechaS, "E" as Tipo FROM [Inventario Cotizacion]

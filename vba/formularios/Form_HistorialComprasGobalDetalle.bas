@@ -2,7 +2,7 @@
 ' Modulo  : Form_HistorialComprasGobalDetalle
 ' Tipo    : 100  |  Lineas: 27
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:13
+' Exportado: 2026-10-14 21:56:09
 ' ==========================================================
 
 Option Compare Database

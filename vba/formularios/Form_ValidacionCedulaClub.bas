@@ -2,7 +2,7 @@
 ' Modulo  : Form_ValidacionCedulaClub
 ' Tipo    : 100  |  Lineas: 36
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:20
+' Exportado: 2026-10-14 21:56:11
 ' ==========================================================
 
 Option Compare Database

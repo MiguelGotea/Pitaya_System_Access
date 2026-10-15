@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ProyeccionVentas
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT numerosemana([NotaDePedido]![Fecha]) AS semana, Sum(SubPedido.Cantidad) AS SumaDeCantidad, DBBatidos.Nombre, Grupos.NombreGrupo, numerosemana(Date())=numerosemana([NotaDePedido]![Fecha]) AS EstaSemana

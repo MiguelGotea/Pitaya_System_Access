@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ListaMOSTRADORFiltro
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT DBBatidos.Marca, DBBatidos.CodSubGrupo, DBBatidos.CodGrupo, DBBatidos.Vigencia, SubReceta.InsumoClave, IIf(IsNull([SubReceta]![codporcion]),DLookUp("[Nombre]","[DBIngredientes]","[CodIngrediente]='" & [SubReceta]![CodIngrediente] & "'"),nombreproductocotiprocesado([SubReceta]![codporcion])) AS nombreprod, SubReceta.codporcion, SubReceta.CodIngrediente, CotiPrincipalProdCompraVenta([DBBatidos]![CodBatido]) AS coti

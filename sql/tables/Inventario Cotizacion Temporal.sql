@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : Inventario Cotizacion Temporal
 -- Campos   : 10
--- Exportado: 2026-10-07 07:17:27
+-- Exportado: 2026-10-14 21:56:15
 -- ==========================================================
 
 CREATE TABLE [Inventario Cotizacion Temporal] (
@@ -14,7 +14,7 @@ CREATE TABLE [Inventario Cotizacion Temporal] (
     [primerenvio] TYPE_4,
     [segundoenvio] TYPE_4,
     [cantidadunidad] TYPE_7,
-    [cantidadpaquete] TYPE_7
+    [cantidadpaquetes] TYPE_7
 );
 
 ALTER TABLE [Inventario Cotizacion Temporal] ADD PRIMARY KEY ([CodICotizacion]);

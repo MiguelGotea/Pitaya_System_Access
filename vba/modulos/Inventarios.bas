@@ -2,7 +2,7 @@
 ' Modulo  : Inventarios
 ' Tipo    : 1  |  Lineas: 2236
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:13
+' Exportado: 2026-10-14 21:56:08
 ' ==========================================================
 
 Option Compare Database

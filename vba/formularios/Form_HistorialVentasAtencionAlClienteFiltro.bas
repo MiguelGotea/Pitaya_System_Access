@@ -2,7 +2,7 @@
 ' Modulo  : Form_HistorialVentasAtencionAlClienteFiltro
 ' Tipo    : 100  |  Lineas: 21
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:19
+' Exportado: 2026-10-14 21:56:11
 ' ==========================================================
 
 Option Compare Database

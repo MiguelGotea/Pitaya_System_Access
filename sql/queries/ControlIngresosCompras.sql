@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ControlIngresosCompras
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT Cotizaciones.CodCotizacion, DBIngredientes.Nombre, Cotizaciones.Marca, Cotizaciones.Capacidad, Compras.Cantidad, numerosemana([Compras]![Fecha]) AS semana

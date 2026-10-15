@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : AprobacionPagoComprasSucursales
 -- Campos   : 5
--- Exportado: 2026-10-07 07:17:24
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 CREATE TABLE [AprobacionPagoComprasSucursales] (

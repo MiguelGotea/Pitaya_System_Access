@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : Inventario Cotizacion
 -- Campos   : 10
--- Exportado: 2026-10-07 07:17:27
+-- Exportado: 2026-10-14 21:56:15
 -- ==========================================================
 
 CREATE TABLE [Inventario Cotizacion] (
@@ -13,8 +13,8 @@ CREATE TABLE [Inventario Cotizacion] (
     [CodOperario] TYPE_4,
     [primerenvio] TYPE_4,
     [segundoenvio] TYPE_4,
-    [cantidadunidad] TYPE_4,
-    [cantidadpaquete] TYPE_4
+    [cantidadunidad] TYPE_7,
+    [cantidadpaquetes] TYPE_7
 );
 
 ALTER TABLE [Inventario Cotizacion] ADD PRIMARY KEY ([CodICotizacion]);

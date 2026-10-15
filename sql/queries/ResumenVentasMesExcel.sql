@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ResumenVentasMesExcel
--- Exportado: 2026-10-07 07:17:23
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT NotaDePedido.Anulado, NotaDePedido.MotivoAnulado, NotaDePedido.Fecha, NotaDePedido.Hora, NotaDePedido.CodPedido, NotaDePedido.CodCliente, IIf([NotaDePedido]![POS]=-1,"A Cuentas","Efectivo") AS aPOS, Delivery.Nombre, Grupos.Tipo, Grupos.NombreGrupo, DBBatidos.Nombre, DBBatidos.Medida, SubPedido.Cantidad, [SubPedido]![CodPromocion] AS CodigoPromocion, [SubPedido]![Cantidad]*PrecioReal([SubPedido]![CodSubPedido]) AS Precio, codigolocal() AS [local], OperarioCaja([NotaDePedido]![Hora],[NotaDePedido]![Fecha]) AS Caja, statusnotaddepedido([NotaDePedido]![CodPedido]) AS Modalidad, NombreOperario([NotaDePedido]![CodMotorizado]) AS Motorizado, SubPedido.Observaciones, IIf([SubPedido]![CodPromocion]=92,0,IIf([SubPedido]![CodPromocion]=104,0,[DBBatidos]![Precio])) AS [Precio Unitario Sin Descuento], NotaDePedido.Impresiones, NotaDePedido.HoraCreado, NotaDePedido.HoraIngresoProducto, NotaDePedido.HoraImpreso, NotaDePedido.Propina

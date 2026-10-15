@@ -2,7 +2,7 @@
 ' Modulo  : Form_Menu PITAYA Global
 ' Tipo    : 100  |  Lineas: 101
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:15
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 
@@ -59,7 +59,7 @@ On Error GoTo Nulo
 Dim numeroclub As String
 numeroclub = InputBox("Ingresar numero de membresia asignado", "Membresia")
 
-If CInt(numeroclub) < 1000 Then
+If CLng(numeroclub) < 1000 Then
     MsgBox "Ingresar numero valido de MEMBRESIA, volver a facturar"
     Exit Sub
 End If

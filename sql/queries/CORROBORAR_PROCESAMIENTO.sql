@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : CORROBORAR_PROCESAMIENTO
--- Exportado: 2026-10-07 07:17:22
+-- Exportado: 2026-10-14 21:56:13
 -- ==========================================================
 
 SELECT DBIngredientes.Nombre, Cotizaciones.Unidad, Procesamiento.Cantidad, Procesamiento.MedidaInicial, Procesamiento.MedidaFinal, Procesamiento.Fecha, Procesamiento.Observaciones, Cotizaciones.CodCotizacion

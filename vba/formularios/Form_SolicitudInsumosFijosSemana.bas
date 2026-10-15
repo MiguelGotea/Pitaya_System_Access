@@ -2,7 +2,7 @@
 ' Modulo  : Form_SolicitudInsumosFijosSemana
 ' Tipo    : 100  |  Lineas: 29
 ' Proyecto: Database3
-' Exportado: 2026-10-07 07:17:16
+' Exportado: 2026-10-14 21:56:10
 ' ==========================================================
 
 Option Compare Database
