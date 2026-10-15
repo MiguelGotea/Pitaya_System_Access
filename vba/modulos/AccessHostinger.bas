@@ -244,16 +244,16 @@ Sub ExportarTablaCompletaHostinger(tablaOrigen As String, tablaDestino As String
     
     Dim cn As Object
     Dim rs As DAO.Recordset
-    Dim fld As DAO.Field
     Dim sqlCampos As String
-    Dim sqlBatch As String
     Dim sqlFila As String
     Dim contador As Long
     Dim totalRegistros As Long
     Dim tamLote As Integer
     Dim I As Integer
+    Dim tablaDestinoSQL As String
     
     tamLote = 300 ' Registros por cada viaje de red (óptimo para MySQL en WAN)
+    tablaDestinoSQL = "`" & tablaDestino & "`"  ' Backticks para nombres con espacios o palabras reservadas
     
     ' 1. Abrir datos locales en Access (Lectura rápida en memoria)
     Set rs = CurrentDb.OpenRecordset(tablaOrigen, dbOpenSnapshot)
@@ -263,24 +263,24 @@ Sub ExportarTablaCompletaHostinger(tablaOrigen As String, tablaDestino As String
         Exit Sub
     End If
     
-    ' 2. Conectar a MySQL Hostinger
+    ' 2. Conectar a MySQL Hostinger (charset=utf8mb4 para texto con emojis/Unicode de 4 bytes)
     Set cn = CreateObject("ADODB.Connection")
-    cn.Open stringdeconexion()
+    cn.Open stringdeconexion() & "charset=utf8mb4;"
     
     ' 3. Limpiar tabla si es Tipooperacion = 2
     If Tipooperacion = 2 Then
         On Error Resume Next
-        cn.Execute "TRUNCATE TABLE " & tablaDestino & ";"
+        cn.Execute "TRUNCATE TABLE " & tablaDestinoSQL & ";"
         If Err.Number <> 0 Then
             ' Si TRUNCATE falla por claves foráneas, usamos DELETE
             Err.Clear
-            cn.Execute "DELETE FROM " & tablaDestino & ";"
+            cn.Execute "DELETE FROM " & tablaDestinoSQL & ";"
         End If
         On Error GoTo ErrorHandler
     End If
     
     ' 4. Armar la lista de nombres de campos: (`col1`, `col2`, ...)
-    sqlCampos = "INSERT INTO " & tablaDestino & " ("
+    sqlCampos = "INSERT INTO " & tablaDestinoSQL & " ("
     For I = 0 To rs.Fields.Count - 1
         sqlCampos = sqlCampos & "`" & rs.Fields(I).Name & "`"
         If I < rs.Fields.Count - 1 Then sqlCampos = sqlCampos & ", "
@@ -290,7 +290,6 @@ Sub ExportarTablaCompletaHostinger(tablaOrigen As String, tablaDestino As String
     ' 5. Recorrer registros y agrupar en lotes
     contador = 0
     totalRegistros = 0
-    sqlBatch = ""
     
     ' Log de errores por fila (nunca se pierde un registro silenciosamente)
     Dim erroresLog As String
@@ -424,11 +423,14 @@ Private Function FormatearValorParaMySQL(fld As DAO.Field) As String
             FormatearValorParaMySQL = CStr(fld.Value)
             
         Case dbSingle, dbDouble, dbCurrency, dbDecimal, dbNumeric
-            ' FIX: Format() con punto fijo evita el problema de locale español (1.234,56 → 1.234.56)
-            FormatearValorParaMySQL = Format(fld.Value, "0.########")
+            ' FIX: 14 decimales para cubrir toda la precisión de Double; punto fijo evita locale español
+            FormatearValorParaMySQL = Format(fld.Value, "0.##############")
             
         Case dbDate, dbTime, dbTimeStamp  ' = 8, 22, 23
-            If Hour(fld.Value) = 0 And Minute(fld.Value) = 0 And Second(fld.Value) = 0 Then
+            ' Guard: MySQL soporta fechas desde 1000-01-01; Access puede guardar fechas anteriores
+            If Year(fld.Value) < 1000 Then
+                FormatearValorParaMySQL = "NULL"  ' Fecha fuera de rango MySQL → NULL
+            ElseIf Hour(fld.Value) = 0 And Minute(fld.Value) = 0 And Second(fld.Value) = 0 Then
                 FormatearValorParaMySQL = "'" & Format(fld.Value, "yyyy-mm-dd") & "'"
             Else
                 FormatearValorParaMySQL = "'" & Format(fld.Value, "yyyy-mm-dd hh:nn:ss") & "'"
