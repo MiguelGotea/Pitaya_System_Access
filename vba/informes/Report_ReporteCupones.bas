@@ -2,7 +2,7 @@
 ' Modulo  : Report_ReporteCupones
 ' Tipo    : 100  |  Lineas: 10
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:06
 ' ==========================================================
 
 Option Compare Database

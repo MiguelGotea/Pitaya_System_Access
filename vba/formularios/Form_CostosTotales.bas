@@ -2,7 +2,7 @@
 ' Modulo  : Form_CostosTotales
 ' Tipo    : 100  |  Lineas: 10
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:07
+' Exportado: 2026-10-22 22:22:59
 ' ==========================================================
 
 Option Compare Database

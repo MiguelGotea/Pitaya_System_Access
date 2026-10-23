@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : PanYPaz_Venta
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:14
 -- ==========================================================
 
 SELECT SubPedido.CodSubPedido, SubPedido.CodBatido, NotaDePedido.Fecha, DBBatidos.Nombre, SubPedido.Cantidad, DBBatidos.Precio, SubReceta.CodIngrediente, SubPedido.CodPromocion

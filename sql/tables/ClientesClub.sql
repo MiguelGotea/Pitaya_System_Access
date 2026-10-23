@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : ClientesClub
--- Campos   : 12
--- Exportado: 2026-10-14 21:56:14
+-- Campos   : 11
+-- Exportado: 2026-10-22 22:23:17
 -- ==========================================================
 
 CREATE TABLE [ClientesClub] (
@@ -15,8 +15,7 @@ CREATE TABLE [ClientesClub] (
     [PuntosIniciales] TYPE_4,
     [local] VARCHAR(255),
     [Genero] VARCHAR(255),
-    [CodAfiliado] TYPE_4,
-    [Cedula] VARCHAR(255)
+    [CodAfiliado] TYPE_4
 );
 
 ALTER TABLE [ClientesClub] ADD PRIMARY KEY ([CodCliente]);

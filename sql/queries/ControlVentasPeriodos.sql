@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ControlVentasPeriodos
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:13
 -- ==========================================================
 
 SELECT NotaDePedido.Fecha, Hour([NotaDePedido]![Hora]) AS Hora, Sum(FactorTiempoProduccion([SubPedido]![CodSubPedido])) AS Monto

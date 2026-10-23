@@ -2,7 +2,7 @@
 ' Modulo  : Form_Calculo Ventas Diarias Tipo Semana
 ' Tipo    : 100  |  Lineas: 106
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:09
+' Exportado: 2026-10-22 22:23:02
 ' ==========================================================
 
 Option Compare Database
@@ -42,8 +42,8 @@ rst.MoveLast
 Cant = rst.RecordCount
 rst.MoveFirst
 
-For j = 1 To Cant
-    If j >= Me.icoti Then
+For J = 1 To Cant
+    If J >= Me.icoti Then
         fech = rst("Dates")
         grup = rst("CodGrupo")
         Deliv = rst("CodDelivery")
@@ -56,12 +56,12 @@ For j = 1 To Cant
         DoCmd.SetWarnings True
 
         '/ Barra de carga
-        Me.carga = j / Cant
-        Me.carga.Left = Me.InsideWidth * j / Cant
-        Me.barracarga.width = Me.InsideWidth * j / Cant
+        Me.carga = J / Cant
+        Me.carga.Left = Me.InsideWidth * J / Cant
+        Me.barracarga.width = Me.InsideWidth * J / Cant
     End If
     rst.MoveNext
-Next j
+Next J
 
 rst.Close
 '/reseteando barra de carga
@@ -71,7 +71,7 @@ Me.icoti = 1
 Exit Sub
 
 AgainAgain:
-Me.icoti = j
+Me.icoti = J
 rst.Close
 Call Comando170_Click
 End Sub

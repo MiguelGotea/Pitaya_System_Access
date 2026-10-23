@@ -2,7 +2,7 @@
 ' Modulo  : Form_Filtro Compras Semana
 ' Tipo    : 100  |  Lineas: 134
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:07
+' Exportado: 2026-10-22 22:22:57
 ' ==========================================================
 
 Option Compare Database

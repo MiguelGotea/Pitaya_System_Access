@@ -2,7 +2,7 @@
 ' Modulo  : Form_Control Mensual Cierres y Compras
 ' Tipo    : 100  |  Lineas: 57
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:05
 ' ==========================================================
 
 Option Compare Database

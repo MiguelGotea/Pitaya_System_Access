@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : PanYPaz_Compra
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:14
 -- ==========================================================
 
 SELECT Compras.CodCotizacion, Compras.Fecha, DBIngredientes.Nombre, Compras.Cantidad, Cotizaciones.CodIngrediente, Compras.CostoTotal

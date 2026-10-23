@@ -2,7 +2,7 @@
 ' Modulo  : Form_BoletaExclusivoCentral
 ' Tipo    : 100  |  Lineas: 31
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:11
+' Exportado: 2026-10-22 22:23:09
 ' ==========================================================
 
 Option Compare Database

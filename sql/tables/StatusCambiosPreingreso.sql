@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : StatusCambiosPreingreso
 -- Campos   : 5
--- Exportado: 2026-10-14 21:56:16
+-- Exportado: 2026-10-22 22:23:23
 -- ==========================================================
 
 CREATE TABLE [StatusCambiosPreingreso] (

@@ -2,7 +2,7 @@
 ' Modulo  : Form_Relacion de Pedidos
 ' Tipo    : 100  |  Lineas: 1413
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:07
+' Exportado: 2026-10-22 22:22:59
 ' ==========================================================
 
 Option Compare Database
@@ -610,10 +610,10 @@ Select Case prom
                 acentos(8, 0) = Chr(243): acentos(8, 1) = "O"  ' ó
                 acentos(9, 0) = Chr(250): acentos(9, 1) = "U"  ' ú
                 
-                Dim j As Integer
-                For j = 0 To 9
-                    nombreNorm = Replace(nombreNorm, acentos(j, 0), acentos(j, 1))
-                Next j
+                Dim J As Integer
+                For J = 0 To 9
+                    nombreNorm = Replace(nombreNorm, acentos(J, 0), acentos(J, 1))
+                Next J
                 
                 ' Revisar si alguna palabra del nombre coincide con los apellidos del dia
                 apellidosArr = Split(apellidosDia, ",")
@@ -626,12 +626,12 @@ Select Case prom
                     Dim palabra As String
                     palabra = Trim(palabrasNombre(I))
                     If palabra <> "" Then
-                        For j = 0 To UBound(apellidosArr)
-                            If palabra = Trim(apellidosArr(j)) Then
+                        For J = 0 To UBound(apellidosArr)
+                            If palabra = Trim(apellidosArr(J)) Then
                                 coincide = True
                                 Exit For
                             End If
-                        Next j
+                        Next J
                     End If
                     If coincide Then Exit For
                 Next I

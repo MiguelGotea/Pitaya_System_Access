@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : Venta Tarjetas
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:14
 -- ==========================================================
 
 SELECT NotaDePedido.Fecha, NotaDePedido.Hora, SubPedido.CodBatido, SubPedido.Cantidad, SubPedido.Observaciones, NotaDePedido.CodCliente, NotaDePedido.CodPedido

@@ -2,7 +2,7 @@
 ' Modulo  : Form_Dashboard_Ventas_Sucursales
 ' Tipo    : 100  |  Lineas: 7
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:09
+' Exportado: 2026-10-22 22:23:04
 ' ==========================================================
 
 Option Compare Database

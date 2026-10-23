@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : InformeDiario
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:14
 -- ==========================================================
 
 SELECT SubPedido.CodPedido, NotaDePedido.Fecha, UsoVidrio([NotaDePedido]![CodPedido]) AS Envase, NotaDePedido.Hora, DBBatidos.Nombre, DBBatidos.Medida, DBBatidos.Precio, SubPedido.Cantidad, PrecioReal([SubPedido]![CodSubPedido])*[SubPedido]![Cantidad] AS Sub, SubPedido.Observaciones, DBPromociones.Nombre, NotaDePedido.CodCliente, NotaDePedido.Modalidad

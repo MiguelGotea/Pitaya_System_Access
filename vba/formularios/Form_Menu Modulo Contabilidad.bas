@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu Modulo Contabilidad
-' Tipo    : 100  |  Lineas: 77
+' Tipo    : 100  |  Lineas: 84
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:09
+' Exportado: 2026-10-22 22:23:04
 ' ==========================================================
 
 Option Compare Database
@@ -70,6 +70,13 @@ Private Sub Comando352_Click()
 DoCmd.OpenForm "IngresoClavePrivado"
 [Forms]![IngresoClavePrivado].Direccion = "actualizartablasmodulo"
 [Forms]![IngresoClavePrivado].variable = "Contabilidad"
+End Sub
+
+Private Sub Comando365_Click()
+If MsgBox("Desea subir el registro de las facturas al ERP", vbYesNo) = vbYes Then
+    Call SyncKardexCentralContabilidadMasivo
+End If
+
 End Sub
 
 Public Sub Comando85_Click()

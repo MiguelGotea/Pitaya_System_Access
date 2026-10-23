@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : Costo Ingredientes
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:13
 -- ==========================================================
 
 SELECT DBIngredientes.Nombre AS Expr1, DBIngredientes.CodIngrediente AS Expr2, CostoIngredienteGlobal([DBIngredientes]![CodIngrediente],74) AS Costo, DBIngredientes.TIPO1 AS Expr3, DBIngredientes.Tipo AS Expr4

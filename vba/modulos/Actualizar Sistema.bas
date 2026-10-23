@@ -2,7 +2,7 @@
 ' Modulo  : Actualizar Sistema
 ' Tipo    : 1  |  Lineas: 1153
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:07
+' Exportado: 2026-10-22 22:22:57
 ' ==========================================================
 
 Option Compare Database
@@ -539,14 +539,14 @@ Kill (D)
 
 Sleep 1000
 
-Dim j, K As String
+Dim J, K As String
 Dim fs2 As Object
-j = "C:\Users\" & NombreSistema() & "\Desktop\Sistema\Copia" & NombrePC() & NombreSistema() & loc & "local_DB.accdb"
+J = "C:\Users\" & NombreSistema() & "\Desktop\Sistema\Copia" & NombrePC() & NombreSistema() & loc & "local_DB.accdb"
 K = "C:\Users\" & NombreSistema() & "\Google Drive BP\Base de Datos Pitaya\Pitaya" & loc & "_DB.accdb"
 Set fs2 = CreateObject("Scripting.FileSystemObject")
-fs2.copyfile j, K, True
+fs2.copyfile J, K, True
 Set fs2 = Nothing
-Kill (j)
+Kill (J)
 End Sub
 
 Sub desvinculartablasmodulo(modu As String) ' copiar archivo de modulo a una copia eliminar la ofriginal y copiar la copia como nuevo
@@ -561,14 +561,14 @@ Kill (D)
 
 Sleep 1000
 
-Dim j, K As String
+Dim J, K As String
 Dim fs2 As Object
-j = "C:\Users\" & NombreSistema() & "\Desktop\Sistema\Copia" & NombrePC() & NombreSistema() & modu & "local_DB.accdb"
+J = "C:\Users\" & NombreSistema() & "\Desktop\Sistema\Copia" & NombrePC() & NombreSistema() & modu & "local_DB.accdb"
 K = "C:\Users\" & NombreSistema() & "\Google Drive BP\Base de Datos Pitaya\" & modu & ".accdb"
 Set fs2 = CreateObject("Scripting.FileSystemObject")
-fs2.copyfile j, K, True
+fs2.copyfile J, K, True
 Set fs2 = Nothing
-Kill (j)
+Kill (J)
 End Sub
 
 Sub ImportarTablaDBExternaToDBExternaCarpetaUsuario(loc As Integer)

@@ -1,8 +1,8 @@
-' ==========================================================
+﻿' ==========================================================
 ' Modulo  : AccessHostinger
-' Tipo    : 1  |  Lineas: 379
+' Tipo    : 1  |  Lineas: 457
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:11
+' Exportado: 2026-10-22 22:23:09
 ' ==========================================================
 
 Option Compare Database
@@ -231,7 +231,6 @@ End Sub
 
 
 
-
 ' ==========================================================
 ' Exportar una tabla completa a MySQL Hostinger de forma ultra-rápida
 ' mediante INSERTs masivos por lotes (Batch / Multi-row INSERT)
@@ -429,7 +428,7 @@ Private Function FormatearValorParaMySQL(fld As DAO.Field) As String
         Case dbDate, dbTime, dbTimeStamp  ' = 8, 22, 23
             ' Guard: MySQL soporta fechas desde 1000-01-01; Access puede guardar fechas anteriores
             If Year(fld.Value) < 1000 Then
-                FormatearValorParaMySQL = "NULL"  ' Fecha fuera de rango MySQL → NULL
+                FormatearValorParaMySQL = "NULL"  ' Fecha fuera de rango MySQL ? NULL
             ElseIf Hour(fld.Value) = 0 And Minute(fld.Value) = 0 And Second(fld.Value) = 0 Then
                 FormatearValorParaMySQL = "'" & Format(fld.Value, "yyyy-mm-dd") & "'"
             Else
@@ -459,5 +458,7 @@ Private Function FormatearValorParaMySQL(fld As DAO.Field) As String
             
     End Select
 End Function
+
+
 
 

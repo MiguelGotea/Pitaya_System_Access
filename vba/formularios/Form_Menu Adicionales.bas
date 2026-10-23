@@ -2,7 +2,7 @@
 ' Modulo  : Form_Menu Adicionales
 ' Tipo    : 100  |  Lineas: 13
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:09
+' Exportado: 2026-10-22 22:23:04
 ' ==========================================================
 
 Private Sub Comando538_Click()

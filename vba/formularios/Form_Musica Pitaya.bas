@@ -2,7 +2,7 @@
 ' Modulo  : Form_Musica Pitaya
 ' Tipo    : 100  |  Lineas: 73
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:07
+' Exportado: 2026-10-22 22:23:00
 ' ==========================================================
 
 Option Compare Database
@@ -49,11 +49,11 @@ Set carpeta = fso.GetFolder(ruta)
 
 Randomize
 I = CInt((Rnd() * carpeta.Files.Count) + 1)
-j = 1
+J = 1
 
 For Each archivo In carpeta.Files
 
-If j >= I Then
+If J >= I Then
     
     If archivo.Type = "MP3 Format Sound" Or archivo.Type = "Sonido en formato MP3" Then
         automusica.url = ruta & archivo.Name
@@ -67,7 +67,7 @@ If j >= I Then
     End If
     
 End If
-j = j + 1
+J = J + 1
 
 Next archivo
 

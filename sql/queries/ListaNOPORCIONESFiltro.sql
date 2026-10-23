@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ListaNOPORCIONESFiltro
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:14
 -- ==========================================================
 
 SELECT TiposVariables.Orden, DBIngredientes.Nombre, Grupos.control, TiposVariables.Control, [DBBatidos]![CodGrupo]=7 AS nomostrador, DBBatidos.Vigencia, Cotizaciones.Subproducto, SubReceta.codporcion, [Cotizaciones]![Marca] & " "="Almacen Global " AS NoAlmacenGlobal, Cotizaciones.Prioridad, Cotizaciones.Descontinuado, Cotizaciones.CodCotizacion

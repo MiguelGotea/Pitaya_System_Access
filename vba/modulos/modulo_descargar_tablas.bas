@@ -2,7 +2,7 @@
 ' Modulo  : modulo_descargar_tablas
 ' Tipo    : 1  |  Lineas: 244
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:12
+' Exportado: 2026-10-22 22:23:11
 ' ==========================================================
 
 Option Compare Database

@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : Egresos Costos Fijos
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:13
 -- ==========================================================
 
 SELECT Compras.Fecha, Month([Compras]![Fecha]) AS Mes, numerosemana([Compras]![Fecha]) AS Semana, DBIngredientes.TIPO1, DBIngredientes.TIPO2, DBIngredientes.Tipo AS TIPO3, [DBIngredientes]![Nombre] & " " & [Compras]![Observaciones] AS Concepto, Cotizaciones.Marca, Proovedores.Nombre, Compras.Cantidad, [Cotizaciones]![Unidad] & " " & [Cotizaciones]![Capacidad] AS PRESENTACION, ConversionCalculado([Compras]![CodCotizacion],numerosemana([Compras]![Fecha]))*[Compras]![Cantidad] AS [CANTIDAD CONTROL], DBIngredientes.Unidad, Compras.CostoTotal, [Compras]![CostoTotal]/[Compras]![Cantidad] AS CUU, [Compras]![CostoTotal]/(ConversionCalculado([Compras]![CodCotizacion],numerosemana([Compras]![Fecha]))*[Compras]![Cantidad]) AS CUF, Cotizaciones.CodIngrediente, Compras.Destino

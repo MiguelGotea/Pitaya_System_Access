@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Menu Gestion
-' Tipo    : 100  |  Lineas: 1941
+' Tipo    : 100  |  Lineas: 1942
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:08
+' Exportado: 2026-10-22 22:23:00
 ' ==========================================================
 
 Option Compare Database
@@ -1603,7 +1603,8 @@ Private Sub Comando4340_Click()
 If MsgBox("Se eliminaran los datos de la tabla en el host y se subiran los de la tabla local, desea continuar?", vbYesNo) = vbNo Then
     Exit Sub
 End If
-Call exportarconsultacondicionalhostinger("DBBatidos", "DBBatidos", "", 2)
+Call ExportarTablaCompletaHostinger("DBBatidos", "DBBatidos", 2)
+'Call exportarconsultacondicionalhostinger("DBBatidos", "DBBatidos", "", 2)
 End Sub
 
 Private Sub Comando4506_Click()

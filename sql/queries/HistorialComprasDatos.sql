@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : HistorialComprasDatos
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:13
 -- ==========================================================
 
 SELECT Compras.Fecha, Cotizaciones.CodIngrediente, Compras.CodCotizacion, Compras.NumeroFactura, nombreproductocotiprocesado([Compras]![CodCotizacion]) AS NombreProd, Cotizaciones.Conversion, Cotizaciones.ConversionEstandar, DBIngredientes.NombreSinProcesar, Compras.Pagado, Compras.Cantidad, Compras.CostoTotal, Compras.Observaciones, DBIngredientes.Tipo, DBIngredientes.TIPO1, DBIngredientes.TIPO2, Compras.Tipo, codigolocal() AS [local], Proovedores.TipoDePago, Compras.Peso, Compras.Lote, Proovedores.Nombre, [Compras]![Destino] AS CeCo, IIf(IsNull([DBIngredientes]![CodCeCoSubCuentas]),"",DLookUp("[Nombre]","[CeCoSubCuentas]","[CodCeCoSubCuentas]=" & [DBIngredientes]![CodCeCoSubCuentas])) AS SubCuenta, IIf(IsNull([DBIngredientes]![CodCeCoSubCuentas]),"",DLookUp("[Nombre]","[CeCoCuentas]","[CodCeCoCuentas]=" & DLookUp("[CodCeCoCuentas]","[CeCoSubCuentas]","[CodCeCoSubCuentas]=" & [DBIngredientes]![CodCeCoSubCuentas]))) AS Cuenta

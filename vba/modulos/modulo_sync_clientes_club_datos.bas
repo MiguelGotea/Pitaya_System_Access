@@ -2,7 +2,7 @@
 ' Modulo  : modulo_sync_clientes_club_datos
 ' Tipo    : 1  |  Lineas: 138
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:12
+' Exportado: 2026-10-22 22:23:11
 ' ==========================================================
 
 

@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : FiltroMostradorVigentes
 -- Campos   : 5
--- Exportado: 2026-10-14 21:56:14
+-- Exportado: 2026-10-22 22:23:19
 -- ==========================================================
 
 CREATE TABLE [FiltroMostradorVigentes] (

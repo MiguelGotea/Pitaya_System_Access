@@ -2,7 +2,7 @@
 ' Modulo  : Form_EstandarInsumosFijosConsumiblesGlobal
 ' Tipo    : 100  |  Lineas: 54
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:07
 ' ==========================================================
 
 Option Compare Database

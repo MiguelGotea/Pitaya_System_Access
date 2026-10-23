@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Nota de Pedido
-' Tipo    : 100  |  Lineas: 987
+' Tipo    : 100  |  Lineas: 989
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:05
 ' ==========================================================
 
 Option Compare Database
@@ -361,7 +361,9 @@ impresionespedido = 0
 [Forms]![Nota de Pedido]![horaabierto] = Now
 
 '''''''''''''ACTUALIZAR Y VALIDAR PUNTOS CLUB ANTES DE IMPRIMIR O MODIFICAR DATOS'''''''''''''
-Call ActualizarPuntosSubPedidoDePedido(codipedido)
+If EstaConectadoInternet() Then
+    Call ActualizarPuntosSubPedidoDePedido(codipedido)
+End If
 
 puntosonlycanjeados = -1 * puntosclubsolocanjeofactura(codipedido) 'la funcion devuelve negativo, se convierte apra validar todo en canjeado con disponibles
 If puntosonlycanjeados <> 0 Then
@@ -603,17 +605,17 @@ Me.TotalGuardado = MontoPedido(codipedido)
 Me.Requery
 'Call ActualizarPuntosSubPedidoDePedido(codipedido) 'Se ejecuta al inicio de Comando155_Click antes de imprimir
 
-
-If EsSistemaDeTienda() = True Then
-    
-    If [Forms]![Nota de Pedido]![CodCliente] <> 0 Then ' club enviar notificacion si hay uso de puntos
-        If puntosonlycanjeados <> 0 Then
-            Call enviarnotificacionclienteusopuntos([Forms]![Nota de Pedido]![CodCliente], puntosonlycanjeados, nombrelocalglobal(codigoLocal()))
-            MsgBox "Se ha notificado al cliente sobre el uso de sus puntos"
+If EstaConectadoInternet() Then
+    If EsSistemaDeTienda() = True Then
+        If [Forms]![Nota de Pedido]![CodCliente] <> 0 Then ' club enviar notificacion si hay uso de puntos
+            If puntosonlycanjeados <> 0 Then
+                Call enviarnotificacionclienteusopuntos([Forms]![Nota de Pedido]![CodCliente], puntosonlycanjeados, nombrelocalglobal(codigoLocal()))
+                MsgBox "Se ha notificado al cliente sobre el uso de sus puntos"
+            End If
         End If
+    
+        Call SyncVentasPedido([Forms]![Nota de Pedido]![CodPedido]) ' enviar dato individual de pedido
     End If
-
-    Call SyncVentasPedido([Forms]![Nota de Pedido]![CodPedido]) ' enviar dato individual de pedido
 End If
 
 DoCmd.Close acForm, "Nota de Pedido"

@@ -1,8 +1,8 @@
-' ==========================================================
+﻿' ==========================================================
 ' Modulo  : modulo_sync_ventas
 ' Tipo    : 1  |  Lineas: 777
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:12
+' Exportado: 2026-10-22 22:23:11
 ' ==========================================================
 
 Option Explicit
@@ -409,7 +409,7 @@ Public Function SyncVentasDia(dtFecha As Date) As Boolean
     Dim lngTotal   As Long
     Dim lngChunks  As Long
     Dim I          As Long
-    Dim j          As Long
+    Dim J          As Long
     Dim lngInicio  As Long
     Dim lngFin     As Long
     Dim sChunkJson As String
@@ -457,11 +457,11 @@ Public Function SyncVentasDia(dtFecha As Date) As Boolean
         ' Construir JSON array del chunk actual
         sChunkJson = "["
         bPrimero = True
-        For j = lngInicio To lngFin
+        For J = lngInicio To lngFin
             If Not bPrimero Then sChunkJson = sChunkJson & ","
             bPrimero = False
-            sChunkJson = sChunkJson & colRows(j)
-        Next j
+            sChunkJson = sChunkJson & colRows(J)
+        Next J
         sChunkJson = sChunkJson & "]"
 
         bOk = EnviarSyncAPIDia(sFecha, codSuc, sChunkJson, (I = 1), I, lngChunks, sResp)

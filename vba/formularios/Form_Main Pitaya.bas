@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_Main Pitaya
-' Tipo    : 100  |  Lineas: 586
+' Tipo    : 100  |  Lineas: 615
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:05
 ' ==========================================================
 
 Option Compare Database
@@ -336,10 +336,22 @@ DoCmd.OpenForm "HistorialVentasDeliveryCentral"
 End Sub
 
 Private Sub Comando2357_Click()
-If MsgBox("Desea reinicar los datos del drive?", vbYesNo, "CONFIRMACION") = vbYes Then
-
-    Call ReiniciarGoogleDrive
+If EstaConectadoInternet() Then
+    If MsgBox("Desea reinicar los datos del drive?", vbYesNo, "CONFIRMACION") = vbYes Then
+        If EsSistemaDeTienda() Then
+            Call SyncLeerRespuestasAnulacion
+            Call SyncAnularCierresPendientes
+            Call ActualizarArchivoCSVVentasFecha(Date)
+            Call ActualizarArchivoCSVVentasFecha(Date - 1)
+            Call ReiniciarGoogleDrive
+        Else
+            MsgBox "No es usuario de tienda para enviar esta informacion"
+        End If
+    End If
+Else
+    MsgBox "Verificar conexion a internet"
 End If
+
 End Sub
 
 Private Sub Comando2366_Click()
@@ -388,8 +400,8 @@ Me.fechasistema = Date
 Me.horaactual = Time()
 Me.Requery
 
-Me.usovidrio = PorcentajeUsoVidrio(Me.fechasistema)
-Me.gigantonas = PorcentajeMedidasBatidos("Gigantona", Me.fechasistema)
+'Me.usovidrio = PorcentajeUsoVidrio(Me.fechasistema)
+'Me.gigantonas = PorcentajeMedidasBatidos("Gigantona", Me.fechasistema)
 Me.tipocambiosistema = "Cambio: " & tipocambio(Date)
 'Me.Ventas = AcumuladoDia(Me.fechasistema)
 Me.Picture = "C:\Users\" & NombreSistema() & "\Google Drive BP\Base de Datos Pitaya\Sys Resources\Background\Background.jpg"
@@ -419,9 +431,9 @@ Call AgregarTitulo  'Llamos al módulo para que nos ponga el título e icono al 
 Me.Imagen2281.Picture = "C:\Users\" & NombreSistema() & "\Google Drive BP\Base de Datos Pitaya\Sys Resources\Icons\PedidosYa.ico"
 Me.Imagen2287.Picture = "C:\Users\" & NombreSistema() & "\Google Drive BP\Base de Datos Pitaya\Sys Resources\Icons\PedidosYa.ico"
 
-If EsSistemaDeTienda() Then
-    Call IniciarPingAutomatico
-End If
+'If EsSistemaDeTienda() Then
+'    Call IniciarPingAutomatico
+'End If
 End Sub
 
 Private Sub Comando1217_Click()
@@ -494,7 +506,7 @@ DoCmd.OpenForm "Nota de Pedido", , , "[CodPedido]=" & Me.CodPedido
 End Sub
 
 
-Private Sub Form_Timer() 'Lee cada 30 segundos
+Private Sub Form_Timer() 'Lee cada 60 segundos
  
 On Error Resume Next
 Dim Horal As Date
@@ -509,35 +521,44 @@ If EsSistemaDeTienda() Then  'que tenga la tabla DatosSistema vinculado y que no
     End If
     
     'Leer grupo de teegram mientras no este abierto nota de pedido
-    If Not CurrentProject.AllForms("Nota de Pedido").IsLoaded And EsSistemaDeTienda() Then  ' si no esta abierto nota de pedido
+    If EstaConectadoInternet() Then
+        If Not CurrentProject.AllForms("Nota de Pedido").IsLoaded And EsSistemaDeTienda() Then  ' si no esta abierto nota de pedido
+            
+            'Call ComunicacionTelegram
+            'Call PingTimerTick
+            
+            Call SyncLeerRespuestasAnulacion
+            Call SyncAnularCierresPendientes
+            Me.Requery
+            Me.alertasmain = ""
+            Me.alertasmain.BackColor = RGB(255, 255, 255)
+    
         
-        Call ComunicacionTelegram
-        Call PingTimerTick
-        Call SyncLeerRespuestasAnulacion
-        Call SyncAnularCierresPendientes
-        Me.Requery
+        
+            'If codigolocal() <> 15 Then
+            '    Call importartablaespecifica("Pitaya15_DB", "StatusPedidosCentral", "StatusPedidosCentralDeliveryCentral", 3) 'descargar status de pedidos si hay
+            '    Dim cantipedi As Integer
+            '    cantipedi = cantidadpedidospendientescentral(codigolocal(), Date)
+            '    If cantipedi > 0 Then
+            '        Call NotificacionConSonido("pedidonuevo")
+            '        Sleep 500
+            '        Call NotificacionConSonido("pedidonuevo")
+            '        Sleep 500
+            '        MsgBox "HAY " & cantipedi & " PEDIDOS PENDIENDES POR FACTURAR DE LA CENTRAL", vbCritical
+            '
+            '        'Call importartablaespecifica("Pitaya15_DB", "NotaDePedido", "NotaDePedidoDeliveryCentral", 3)
+            '        'Call importartablaespecifica("Pitaya15_DB", "SubPedido", "SubPedidoDeliveryCentral", 3)
+            '        'Call importartablaespecifica("Pitaya15_DB", "StatusPedidosCentral", "StatusPedidosCentralDeliveryCentral", 3)
+            '        'Call importartablaespecifica("Pitaya15_DB", "ClientesDelivery", "ClientesDelivery", 1)
+            '        'DoCmd.OpenForm "HistorialVentasDeliveryCentral"
+            '    End If
+            '    DoCmd.RunSQL "DROP TABLE StatusPedidosCentralDeliveryCentral"
+            'End If
     
-    
-        'If codigolocal() <> 15 Then
-        '    Call importartablaespecifica("Pitaya15_DB", "StatusPedidosCentral", "StatusPedidosCentralDeliveryCentral", 3) 'descargar status de pedidos si hay
-        '    Dim cantipedi As Integer
-        '    cantipedi = cantidadpedidospendientescentral(codigolocal(), Date)
-        '    If cantipedi > 0 Then
-        '        Call NotificacionConSonido("pedidonuevo")
-        '        Sleep 500
-        '        Call NotificacionConSonido("pedidonuevo")
-        '        Sleep 500
-        '        MsgBox "HAY " & cantipedi & " PEDIDOS PENDIENDES POR FACTURAR DE LA CENTRAL", vbCritical
-        '
-        '        'Call importartablaespecifica("Pitaya15_DB", "NotaDePedido", "NotaDePedidoDeliveryCentral", 3)
-        '        'Call importartablaespecifica("Pitaya15_DB", "SubPedido", "SubPedidoDeliveryCentral", 3)
-        '        'Call importartablaespecifica("Pitaya15_DB", "StatusPedidosCentral", "StatusPedidosCentralDeliveryCentral", 3)
-        '        'Call importartablaespecifica("Pitaya15_DB", "ClientesDelivery", "ClientesDelivery", 1)
-        '        'DoCmd.OpenForm "HistorialVentasDeliveryCentral"
-        '    End If
-        '    DoCmd.RunSQL "DROP TABLE StatusPedidosCentralDeliveryCentral"
-        'End If
-    
+         End If
+    Else
+        Me.alertasmain = "Verificar conexion a internet"
+        Me.alertasmain.BackColor = RGB(255, 0, 0)
     End If
     
     '================================================================================================
@@ -556,12 +577,20 @@ If EsSistemaDeTienda() Then  'que tenga la tabla DatosSistema vinculado y que no
     
     '================================================================================================
     ' CADA 60 MINUTOS
+    
     If Minute(Horal) = 0 And Second(Horal) < 30 Then
-        
-        If Not CurrentProject.AllForms("Nota de Pedido").IsLoaded And EsSistemaDeTienda() Then    ' si no esta abierto nota de pedido
-            Call ActualizarArchivoCSVVentasFecha(Date)
-            Call ActualizarArchivoCSVVentasFecha(Date - 1)
+        If EstaConectadoInternet() Then
+            If Not CurrentProject.AllForms("Nota de Pedido").IsLoaded And EsSistemaDeTienda() Then    ' si no esta abierto nota de pedido
+                Call ActualizarArchivoCSVVentasFecha(Date)
+                Call ActualizarArchivoCSVVentasFecha(Date - 1)
+                Me.alertasmain = ""
+                Me.alertasmain.BackColor = RGB(255, 255, 255)
+            End If
+        Else
+            Me.alertasmain = "Verificar conexion a internet"
+            Me.alertasmain.BackColor = RGB(255, 0, 0)
         End If
+            
         
     End If
 

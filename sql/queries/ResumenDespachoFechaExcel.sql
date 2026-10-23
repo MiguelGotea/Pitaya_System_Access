@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ResumenDespachoFechaExcel
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:14
 -- ==========================================================
 
 SELECT PreIngresoPitaya.Fecha, SubPreIngresosPitaya.CodCotizacion, Cotizaciones.CodIngrediente, Right([PreIngresoPitaya]![Destino],Len([PreIngresoPitaya]![Destino])-7) AS [local], DBIngredientes.TIPO2, DBIngredientes.Tipo, nombreproductocotiprocesado([SubPreIngresosPitaya]![CodCotizacion]) AS Producto, SubPreIngresosPitaya.Cantidad, numerosemana([PreIngresoPitaya]![Fecha]) AS semana, PorcionDentroDeMezcla([SubPreIngresosPitaya]![CodCotizacion]) AS mezcla, Cotizaciones.Conversion

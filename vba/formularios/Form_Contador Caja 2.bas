@@ -2,7 +2,7 @@
 ' Modulo  : Form_Contador Caja 2
 ' Tipo    : 100  |  Lineas: 377
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:07
 ' ==========================================================
 
 Option Compare Database

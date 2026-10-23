@@ -2,7 +2,7 @@
 ' Modulo  : Report_DetallePreingreso2
 ' Tipo    : 100  |  Lineas: 11
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:11
+' Exportado: 2026-10-22 22:23:08
 ' ==========================================================
 
 Option Compare Database

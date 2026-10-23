@@ -2,7 +2,7 @@
 ' Modulo  : Form_Cierre por Turno 3
 ' Tipo    : 100  |  Lineas: 395
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:11
+' Exportado: 2026-10-22 22:23:08
 ' ==========================================================
 
 Option Compare Database

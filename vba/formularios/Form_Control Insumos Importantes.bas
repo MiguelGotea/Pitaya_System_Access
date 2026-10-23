@@ -2,7 +2,7 @@
 ' Modulo  : Form_Control Insumos Importantes
 ' Tipo    : 100  |  Lineas: 62
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:09
+' Exportado: 2026-10-22 22:23:02
 ' ==========================================================
 
 Option Compare Database

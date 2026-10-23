@@ -2,7 +2,7 @@
 ' Modulo  : Form_RegistroDeFacturaCompra
 ' Tipo    : 100  |  Lineas: 507
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:05
 ' ==========================================================
 
 Option Compare Database

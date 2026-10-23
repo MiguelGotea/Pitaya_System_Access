@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : ControlIngresosSemana
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:13
 -- ==========================================================
 
 SELECT Cotizaciones.CodCotizacion, DBIngredientes.Nombre, Cotizaciones.Marca, Cotizaciones.Capacidad, DBIngredientes.TIPO1, IngresosPitaya.Cantidad, numerosemana([IngresosPitaya]![Fecha]) AS semana

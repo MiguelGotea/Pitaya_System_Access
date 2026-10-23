@@ -1,6 +1,6 @@
 ﻿-- ==========================================================
 -- Consulta : TempUltimosPedidos
--- Exportado: 2026-10-14 21:56:13
+-- Exportado: 2026-10-22 22:23:14
 -- ==========================================================
 
 SELECT TOP 5 SubPedido.CodSubPedido, FormatDateTime(DLookUp("[Hora]","[NotaDePedido]","[NotaDePedido]![CodPedido]=" & [SubPedido]![CodPedido]),4) & "    " & DLookUp("[Nombre]","[DBBatidos]","[DBBatidos]![CodBatido]='" & [SubPedido]![CodBatido] & "'") AS NyH

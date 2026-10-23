@@ -2,7 +2,7 @@
 ' Modulo  : Form_Introduccion
 ' Tipo    : 100  |  Lineas: 250
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:05
 ' ==========================================================
 
 Option Compare Database
@@ -23,10 +23,10 @@ Set carpeta = fso.GetFolder(ruta)
 
 Randomize
 I = Int(Rnd() * carpeta.Files.Count + 1)
-j = 1
+J = 1
 
 For Each archivo In carpeta.Files
-    If j = I Then
+    If J = I Then
         If archivo.Type = "MP3 Format Sound" Or archivo.Type = "Sonido en formato MP3" Then
             automusica.url = ruta & archivo.Name
             cancion.Value = Left(archivo.Name, 20)
@@ -34,7 +34,7 @@ For Each archivo In carpeta.Files
             automusica.settings.volume = DLookup("[VolumenMusica]", "DatosSistema")
         End If
     End If
-    j = j + 1
+    J = J + 1
 Next archivo
 
 Set fso = Nothing
@@ -229,9 +229,9 @@ Select Case CurrentProject.Name
         End If
 End Select
 
-If EsSistemaDeTienda() Then
-    Call IniciarPingAutomatico
-End If
+'If EsSistemaDeTienda() Then
+    'Call IniciarPingAutomatico
+'End If
 End Sub
 
 
@@ -251,7 +251,7 @@ End Sub
 
 
 Private Sub Form_Timer()
-If EsSistemaDeTienda() Then
-    Call PingTimerTick
-End If
+'If EsSistemaDeTienda() Then
+'    Call PingTimerTick
+'End If
 End Sub

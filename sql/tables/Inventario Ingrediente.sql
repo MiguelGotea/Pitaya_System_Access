@@ -1,7 +1,7 @@
 ﻿-- ==========================================================
 -- Tabla    : Inventario Ingrediente
 -- Campos   : 6
--- Exportado: 2026-10-14 21:56:15
+-- Exportado: 2026-10-22 22:23:20
 -- ==========================================================
 
 CREATE TABLE [Inventario Ingrediente] (

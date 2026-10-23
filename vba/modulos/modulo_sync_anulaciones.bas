@@ -2,7 +2,7 @@
 ' Modulo  : modulo_sync_anulaciones
 ' Tipo    : 1  |  Lineas: 757
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:11
+' Exportado: 2026-10-22 22:23:10
 ' ==========================================================
 
 Option Compare Database

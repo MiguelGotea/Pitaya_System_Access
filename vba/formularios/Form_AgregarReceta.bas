@@ -1,8 +1,8 @@
 ﻿' ==========================================================
 ' Modulo  : Form_AgregarReceta
-' Tipo    : 100  |  Lineas: 380
+' Tipo    : 100  |  Lineas: 383
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:10
+' Exportado: 2026-10-22 22:23:06
 ' ==========================================================
 
 Option Compare Database
@@ -221,16 +221,19 @@ Dim nuevobati As String
 Dim codigoantiguo As String
 Dim ValidarTipoBati As Integer
 
-miSQL = "SELECT DBBatidos.CodBatido, DBBatidos.Vigencia, DBBatidos.CodGrupo, DBBatidos.Nombre" & _
+'Solo PedidosYa
+'miSQL = "SELECT DBBatidos.CodBatido, DBBatidos.Vigencia, DBBatidos.CodGrupo, DBBatidos.Nombre" & _
 " FROM DBBatidos" & _
 " WHERE (((DBBatidos.Vigencia)<>0) AND ((DBBatidos.CodGrupo)=" & Me.grupomasivo & ")" & _
 " AND ((Right([DBBatidos.CodBatido],1))='d'))" & _
 " ORDER BY DBBatidos.Nombre, DBBatidos.CodBatido"
 
-'miSQL = "SELECT DBBatidos.CodBatido, DBBatidos.Vigencia, DBBatidos.CodGrupo, DBBatidos.Nombre" & _
+'Todos
+miSQL = "SELECT DBBatidos.CodBatido, DBBatidos.Vigencia, DBBatidos.CodGrupo, DBBatidos.Nombre" & _
 " FROM DBBatidos" & _
 " WHERE (((DBBatidos.Vigencia)<>0) AND ((DBBatidos.CodGrupo)=" & Me.grupomasivo & "))" & _
 " ORDER BY DBBatidos.Nombre, DBBatidos.CodBatido"
+
 Set rst = CurrentDb.OpenRecordset(miSQL, dbOpenDynaset)
 rst.MoveLast
 cantx = rst.RecordCount

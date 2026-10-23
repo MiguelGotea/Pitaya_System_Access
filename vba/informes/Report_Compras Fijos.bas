@@ -2,7 +2,7 @@
 ' Modulo  : Report_Compras Fijos
 ' Tipo    : 100  |  Lineas: 9
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:08
+' Exportado: 2026-10-22 22:23:01
 ' ==========================================================
 
 Option Compare Database

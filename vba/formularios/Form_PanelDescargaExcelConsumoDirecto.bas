@@ -2,7 +2,7 @@
 ' Modulo  : Form_PanelDescargaExcelConsumoDirecto
 ' Tipo    : 100  |  Lineas: 1374
 ' Proyecto: Database3
-' Exportado: 2026-10-14 21:56:11
+' Exportado: 2026-10-22 22:23:10
 ' ==========================================================
 
 Option Compare Database
@@ -20,7 +20,7 @@ Private Sub Comando133_Click()
     Dim xlBook As Object ' Excel.Workbook
     Dim xlSheet As Object ' Excel.Worksheet
     Dim strSQL As String
-    Dim I As Long, j As Long
+    Dim I As Long, J As Long
     Dim semana_desde As Integer
     Dim semana_hasta As Integer
     Dim numSemanas As Integer
@@ -139,25 +139,25 @@ Private Sub Comando133_Click()
         On Error GoTo 0
         
         ' Calcular ventas para cada semana individualmente
-        For j = 1 To numSemanas
-            semana_actual = semana_desde + j - 1
+        For J = 1 To numSemanas
+            semana_actual = semana_desde + J - 1
             
             On Error Resume Next
             ' Llamar a la función con un solo parámetro de semana
             resultado = VentasXTipoPorcionSemana(semana_actual, rs!codporcion)
             
             If Err.Number <> 0 Then
-                xlSheet.Cells(fila, j + 1).Value = 0 ' Poner 0 en caso de error
+                xlSheet.Cells(fila, J + 1).Value = 0 ' Poner 0 en caso de error
                 Err.Clear
             Else
                 If IsNumeric(resultado) Then
-                    xlSheet.Cells(fila, j + 1).Value = resultado
+                    xlSheet.Cells(fila, J + 1).Value = resultado
                 Else
-                    xlSheet.Cells(fila, j + 1).Value = 0
+                    xlSheet.Cells(fila, J + 1).Value = 0
                 End If
             End If
             On Error GoTo 0
-        Next j
+        Next J
         
         fila = fila + 1
         rs.MoveNext
@@ -246,7 +246,7 @@ Private Sub Comando332_Click()
     Dim xlBook As Object ' Excel.Workbook
     Dim xlSheet As Object ' Excel.Worksheet
     Dim strSQL As String
-    Dim I As Long, j As Long
+    Dim I As Long, J As Long
     Dim semana_desde As Integer
     Dim semana_hasta As Integer
     Dim numSemanas As Integer
@@ -388,25 +388,25 @@ Private Sub Comando332_Click()
         On Error GoTo 0
         
         ' Calcular consumos para cada semana
-        For j = 1 To numSemanas
-            semana_actual = semana_desde + j - 1
+        For J = 1 To numSemanas
+            semana_actual = semana_desde + J - 1
             
             On Error Resume Next
             ' Calcular: VentasXTipoNoPorcionSemana(semana, CodIngrediente) / conversion
             resultado = VentasXTipoNoPorcionSemana(semana_actual, rs!CodIngrediente)
             
             If Err.Number <> 0 Then
-                xlSheet.Cells(fila, j + 1).Value = 0
+                xlSheet.Cells(fila, J + 1).Value = 0
                 Err.Clear
             Else
                 If IsNumeric(resultado) And Conversion <> 0 Then
-                    xlSheet.Cells(fila, j + 1).Value = resultado / Conversion
+                    xlSheet.Cells(fila, J + 1).Value = resultado / Conversion
                 Else
-                    xlSheet.Cells(fila, j + 1).Value = 0
+                    xlSheet.Cells(fila, J + 1).Value = 0
                 End If
             End If
             On Error GoTo 0
-        Next j
+        Next J
         
         fila = fila + 1
         rs.MoveNext
@@ -530,7 +530,7 @@ Private Sub Comando334_Click()
     Dim xlBook As Object ' Excel.Workbook
     Dim xlSheet As Object ' Excel.Worksheet
     Dim strSQL As String
-    Dim I As Long, j As Long
+    Dim I As Long, J As Long
     Dim semana_desde As Integer
     Dim semana_hasta As Integer
     Dim numSemanas As Integer
@@ -674,25 +674,25 @@ Private Sub Comando334_Click()
         On Error GoTo 0
         
         ' Calcular consumos para cada semana
-        For j = 1 To numSemanas
-            semana_actual = semana_desde + j - 1
+        For J = 1 To numSemanas
+            semana_actual = semana_desde + J - 1
             
             On Error Resume Next
             ' Calcular: VentasXTipoNoPorcionSemana(semana, CodIngrediente) / divisor
             resultado = VentasXTipoNoPorcionSemana(semana_actual, rs!CodIngrediente)
             
             If Err.Number <> 0 Then
-                xlSheet.Cells(fila, j + 1).Value = 0
+                xlSheet.Cells(fila, J + 1).Value = 0
                 Err.Clear
             Else
                 If IsNumeric(resultado) And divisor <> 0 Then
-                    xlSheet.Cells(fila, j + 1).Value = resultado / divisor
+                    xlSheet.Cells(fila, J + 1).Value = resultado / divisor
                 Else
-                    xlSheet.Cells(fila, j + 1).Value = 0
+                    xlSheet.Cells(fila, J + 1).Value = 0
                 End If
             End If
             On Error GoTo 0
-        Next j
+        Next J
         
         fila = fila + 1
         rs.MoveNext
@@ -783,7 +783,7 @@ Private Sub Comando340_Click()
     Dim xlBook As Object ' Excel.Workbook
     Dim xlSheet As Object ' Excel.Worksheet
     Dim strSQL As String
-    Dim I As Long, j As Long
+    Dim I As Long, J As Long
     Dim semana_desde As Integer
     Dim semana_hasta As Integer
     Dim numSemanas As Integer
@@ -945,8 +945,8 @@ Private Sub Comando340_Click()
         On Error GoTo 0
         
         ' Calcular consumos para cada semana (a partir de columna D)
-        For j = 1 To numSemanas
-            semana_actual = semana_desde + j - 1
+        For J = 1 To numSemanas
+            semana_actual = semana_desde + J - 1
             
             On Error Resume Next
             ' Determinar qué función usar según si tiene codporcion o no
@@ -959,17 +959,17 @@ Private Sub Comando340_Click()
             End If
             
             If Err.Number <> 0 Then
-                xlSheet.Cells(fila, j + 3).Value = 0
+                xlSheet.Cells(fila, J + 3).Value = 0
                 Err.Clear
             Else
                 If IsNumeric(resultado) Then
-                    xlSheet.Cells(fila, j + 3).Value = resultado
+                    xlSheet.Cells(fila, J + 3).Value = resultado
                 Else
-                    xlSheet.Cells(fila, j + 3).Value = 0
+                    xlSheet.Cells(fila, J + 3).Value = 0
                 End If
             End If
             On Error GoTo 0
-        Next j
+        Next J
         
         fila = fila + 1
 ' Siguiente:
@@ -1066,7 +1066,7 @@ Private Sub Comando350_Click()
     Dim xlBook As Object ' Excel.Workbook
     Dim xlSheet As Object ' Excel.Worksheet
     Dim strSQL As String
-    Dim I As Long, j As Long
+    Dim I As Long, J As Long
     Dim semana_desde As Integer
     Dim semana_hasta As Integer
     Dim numSemanas As Integer
@@ -1215,25 +1215,25 @@ Private Sub Comando350_Click()
         On Error GoTo 0
         
         ' Calcular consumos para cada semana (a partir de columna D)
-        For j = 1 To numSemanas
-            semana_actual = semana_desde + j - 1
+        For J = 1 To numSemanas
+            semana_actual = semana_desde + J - 1
             
             On Error Resume Next
             ' Usar consumoporciones(codporcion, semana)
             resultado = consumoporciones(rs!codporcion, semana_actual)
             
             If Err.Number <> 0 Then
-                xlSheet.Cells(fila, j + 3).Value = 0
+                xlSheet.Cells(fila, J + 3).Value = 0
                 Err.Clear
             Else
                 If IsNumeric(resultado) Then
-                    xlSheet.Cells(fila, j + 3).Value = resultado
+                    xlSheet.Cells(fila, J + 3).Value = resultado
                 Else
-                    xlSheet.Cells(fila, j + 3).Value = 0
+                    xlSheet.Cells(fila, J + 3).Value = 0
                 End If
             End If
             On Error GoTo 0
-        Next j
+        Next J
         
         fila = fila + 1
         rs.MoveNext
