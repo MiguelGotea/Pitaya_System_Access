@@ -1,4 +1,4 @@
-﻿' ==========================================================
+' ==========================================================
 ' Modulo  : Form_AgregarReceta
 ' Tipo    : 100  |  Lineas: 383
 ' Proyecto: Database3
@@ -220,6 +220,7 @@ Dim bati As String
 Dim nuevobati As String
 Dim codigoantiguo As String
 Dim ValidarTipoBati As Integer
+Dim esPY As Boolean
 
 'Solo PedidosYa
 'miSQL = "SELECT DBBatidos.CodBatido, DBBatidos.Vigencia, DBBatidos.CodGrupo, DBBatidos.Nombre" & _
@@ -264,10 +265,19 @@ For I = 1 To cantx
                 ValidarTipoBati = 0
             End If
         ElseIf DLookup("[Tipo]", "[Grupos]", "[CodGrupo]=" & grupi) = "Waffles" Then
-            If Right(bati, 1) = "d" Then
-                ValidarTipoBati = 5
+            ' Detectar subtipo de Waffle por nombre usando Like con wildcards dobles
+            esPY = (Right(bati, 1) = "d")
+            
+            If Trim(Nombrex) Like "Waffle Clasico*" Then
+                ValidarTipoBati = IIf(esPY, 7, 4)  ' Clasico normal=4, PY=7
+            ElseIf Trim(Nombrex) Like "Waffle Especial*" Then
+                ValidarTipoBati = IIf(esPY, 8, 5)  ' Especial normal=5, PY=8
+            ElseIf Trim(Nombrex) Like "Waffle Proteina*" Then
+                ValidarTipoBati = IIf(esPY, 9, 6)  ' Proteina normal=6, PY=9
             Else
-                ValidarTipoBati = 4
+                ' Waffle generico no identificado
+                ValidarTipoBati = 0
+                'Me.logmasivo = Me.logmasivo & " " & Trim(Nombrex)
             End If
         Else ' solo se admite batido, limonada y waffle , los demas no se cambia precios por grupos
             ValidarTipoBati = 0
@@ -283,10 +293,21 @@ For I = 1 To cantx
             Me.aprecio = Me.masivo20oz
         Case 3
             Me.aprecio = Me.masivo16ozpy
+        ' --- Waffles Clasico ---
         Case 4
-            Me.aprecio = Me.masivowaffle
+            Me.aprecio = Me.masivowaffle          ' Waffle Clasico En Tienda
+        Case 7
+            Me.aprecio = Me.masivowafflePY        ' Waffle Clasico PedidosYa
+        ' --- Waffles Especial ---
         Case 5
-            Me.aprecio = Me.masivowafflePY
+            Me.aprecio = Me.masivowaffleespecial  ' Waffle Especial En Tienda
+        Case 8
+            Me.aprecio = Me.masivowaffleespecialPY ' Waffle Especial PedidosYa
+        ' --- Waffles Proteina ---
+        Case 6
+            Me.aprecio = Me.masivowaffleproteina  ' Waffle Proteina En Tienda
+        Case 9
+            Me.aprecio = Me.masivowaffleproteinaPY ' Waffle Proteina PedidosYa
         Case Else
             Me.aprecio = 0
         End Select
@@ -298,7 +319,7 @@ For I = 1 To cantx
             MsgBox "No se detecto la version"
             Me.logmasivo = Me.logmasivo & Me.cod & " NO SE CREO " & Me.acodbatido & " POR AUMENTO DE VERSION " & Me.areceta & Chr(13) & Chr(10)
         ElseIf Me.aprecio = 0 Then 'Nos e ddetecto tamano o si es d epeddosya
-            MsgBox "No se detecto tamano o si es pedidosya"
+            'MsgBox "No se detecto tamano o si es pedidosya"
             Me.logmasivo = Me.logmasivo & Me.cod & " NO SE CREO " & Me.acodbatido & " DETECCION DE TAMANO O PEDIDOSYA " & Me.areceta & Chr(13) & Chr(10)
         Else
             'MsgBox "Codigo Disponible"
